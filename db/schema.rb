@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_22_181552) do
+ActiveRecord::Schema.define(version: 2021_05_22_185130) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,15 @@ ActiveRecord::Schema.define(version: 2021_05_22_181552) do
     t.index ["user_id"], name: "index_products_on_user_id"
   end
 
+  create_table "signatures", force: :cascade do |t|
+    t.string "title"
+    t.string "type_of"
+    t.float "price"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -34,9 +43,15 @@ ActiveRecord::Schema.define(version: 2021_05_22_181552) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "signature_id", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "role"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["signature_id"], name: "index_users_on_signature_id"
   end
 
   add_foreign_key "products", "users"
+  add_foreign_key "users", "signatures"
 end
