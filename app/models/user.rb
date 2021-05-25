@@ -5,5 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_one :basket
   has_many :products
-  has_one :signature
+  has_many :signature
 end
