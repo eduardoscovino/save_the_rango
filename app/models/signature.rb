@@ -1,3 +1,3 @@
 class Signature < ApplicationRecord
-  has_many :users
+  has_many :subscriptions
 end
