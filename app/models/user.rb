@@ -4,6 +4,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_one :basket
-  has_many :products
-  has_many :signature
+  has_one :subscription
 end

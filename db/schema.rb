@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_25_153328) do
+ActiveRecord::Schema.define(version: 2021_05_25_224012) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,10 +37,8 @@ ActiveRecord::Schema.define(version: 2021_05_25_153328) do
     t.float "price"
     t.date "expiration_date"
     t.integer "available_quantity"
-    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_products_on_user_id"
   end
 
   create_table "signatures", force: :cascade do |t|
@@ -50,8 +48,15 @@ ActiveRecord::Schema.define(version: 2021_05_25_153328) do
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "subscriptions", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.index ["user_id"], name: "index_signatures_on_user_id"
+    t.bigint "signature_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["signature_id"], name: "index_subscriptions_on_signature_id"
+    t.index ["user_id"], name: "index_subscriptions_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -72,6 +77,6 @@ ActiveRecord::Schema.define(version: 2021_05_25_153328) do
   add_foreign_key "baskets", "users"
   add_foreign_key "orders", "baskets"
   add_foreign_key "orders", "products"
-  add_foreign_key "products", "users"
-  add_foreign_key "signatures", "users"
+  add_foreign_key "subscriptions", "signatures"
+  add_foreign_key "subscriptions", "users"
 end
