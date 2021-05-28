@@ -1,0 +1,26 @@
+        <div data-refresh-list-target="list">
+          <div class="container mt-5 content">
+              <% if params[:query].blank? %>
+                <h1 class="h3"><%= pluralize products.count, 'product' %> available</h1>
+              <% else %>
+                <h1 class="h3"><%= pluralize products.count, 'result' %> for <code><%= params[:query] %></code></h1>
+              <% end %>
+            <div class="row">
+              <% @products.each do |product| %>
+                <div class="col-12 col-md-6 col-lg-6">
+                  <div class="card mb-4">
+                    <%= image_tag "orange.jpg", class: "card-img-top" %>
+                    <div class="card-body">
+                      <%= link_to product.name, product_path(product), class: "text-decoration-none" %>
+                      <p>R$ <%= product.price %></p>
+                    </div>
+                  </div>
+                 </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+
+        
+        
