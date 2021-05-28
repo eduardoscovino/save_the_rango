@@ -9,16 +9,16 @@
 
 
 # create an admin user with role admin
-puts "Creating users..."
-if !User.find_by(email: "")
-  case Rails.env
-  when "development"
-    User.create!(email: "", password: "123456", role: "admin")
-  when "production"
-    User.create!(email: "", password: "", role: "admin")
-  end
-end
-puts "Users created!"
+# puts "Creating users..."
+# if !User.find_by(email: "")
+#   case Rails.env
+#   when "development"
+#     User.create!(email: "", password: "123456", role: "admin")
+#   when "production"
+#     User.create!(email: "", password: "", role: "admin")
+#   end
+# end
+# puts "Users created!"
 
 # create signatures
 # create products
