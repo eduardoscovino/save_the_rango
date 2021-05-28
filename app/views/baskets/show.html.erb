@@ -1,0 +1,22 @@
+<div class="container mt-5 content">
+  <h1>My Basket</h1>
+    <div class="row">
+      <% @basket.orders.each do |order| %>
+        <div class="col-12 col-md-6 offset-lg-3">
+          <div class="card-product mb-4" id="killed-hover-oncard">
+            <div class="card-product-infos">
+              <div>
+                <h2 class= "mb-3"><%= order.product.name %></h2>
+                <p style="font-size: 16px;">R$ <%= order.product.price %> - Qty: <%= order.quantity  %></p>
+                <button id="sweet-alert" class="btn btn-outline-warning mt-2">Delete</button>
+                  <%= link_to "", order_path(order), method: :delete, id: "delete-link", class: "hidden" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="d-flex justify-content-start pb-3">
+          <%= link_to 'Back', products_path, class: "btn btn-outline-primary" %>
+    </div>
+</div>
