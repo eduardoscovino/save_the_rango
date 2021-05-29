@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :orders, only: [:destroy]
   resources :baskets, only: [:show, :update, :destroy]
 
-  resources :signature, only: [:index, :show] do
+  resources :signatures, only: [:index, :show] do
     resources :subscription, only: [:create]
   end
   resources :subscription, only: [:show, :destroy]
