@@ -8,4 +8,8 @@ class BasketPolicy < ApplicationPolicy
   def show?
     user.role == 'Customer' if user
   end
+
+  def checkout?
+    user.role == 'Customer' if user
+  end
 end
