@@ -1,0 +1,15 @@
+<div class="container py-5">
+  <div class="row">
+    <div class="col-12 col-md-6 offset-lg-3">
+      <div class="card mb-4">
+        <%= image_tag "orange.jpg", class: "card-img-top" %>
+          <div class="card-body">
+            <h3 class= "mb-3"><%= @product.name %></h2>
+            <p> Until: <%= @product.expiration_date %></p>
+            <p> R$ <%= @product.price %></p>
+          </div>
+      </div>
+    <%= link_to "Back", products_path, class: "nav-link", class: "btn btn-success" %>
+    </div>
+  </div>
+</div>

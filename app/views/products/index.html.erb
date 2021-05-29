@@ -1,0 +1,19 @@
+<div class="container my-4">
+  <div class="row justify-content-center">
+    <div class="col">
+      <div data-controller="refresh-list">
+          <%= form_with url: products_path, method: :get, html: { class: 'p-3', data: { refresh_list_target: 'form' } } do |f| %>
+              <%= f.text_field :query,
+                              class: "form-control",
+                              placeholder: 'Find a product',
+                              value: params[:query],
+                              data: {
+                                refresh_list_target: 'searchInput',
+                                action: "keyup->refresh-list#update"
+                              } %>
+          <% end %>
+          <%= render 'list', products: @products %>
+      </div>
+    </div>
+  </div>
+</div>
