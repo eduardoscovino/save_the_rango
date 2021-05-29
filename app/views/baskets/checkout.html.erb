@@ -7,7 +7,7 @@
           <div class="card-product mb-4">
             <div class="card-product-infos">
               <h2 class= "mb-3"><%= order.product.name %></h2>
-              <p style="font-size: 16px;">R$ <%= order.product.price * order.quantity %> - Qty: <%= order.quantity  %></p>
+              <p style="font-size: 16px;">R$ <%= order.product.price * order.product.available_quantity %> - Qty: <%= order.product.available_quantity  %></p>
             </div>
           </div>
         </div>
