@@ -12,11 +12,6 @@
                                 action: "keyup->refresh-list#update"
                               } %>
           <% end %>
-          <% if user_signed_in? %>
-            <% if policy(Basket).show? && current_user.basket %>
-              <%= link_to "My basket", basket_path(current_user.basket), class: "btn btn-primary" %>
-            <% end %>
-          <% end %>
           <%= render 'list', products: @products %>
       </div>
     </div>
