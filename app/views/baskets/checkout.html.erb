@@ -1,0 +1,19 @@
+<div class="container mt-5 content">
+  <h1 class="text-center pb-3">Thank you for choosing us!</h1>
+  <hr>
+    <div class="row">
+      <% @basket.orders.each do |order| %>
+        <div class="col-12 col-md-6 offset-lg-3">
+          <div class="card-product mb-4">
+            <div class="card-product-infos">
+              <h2 class= "mb-3"><%= order.product.name %></h2>
+              <p style="font-size: 16px;">R$ <%= order.product.price * order.quantity %> - Qty: <%= order.quantity  %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="d-flex justify-content-center pb-3">
+          <%= link_to 'Back', products_path, class: "btn btn-outline-primary" %>
+    </div>
+</div>

@@ -7,7 +7,12 @@ Rails.application.routes.draw do
     resources :orders, only: [:new, :create]
   end
   resources :orders, only: [:destroy]
-  resources :baskets, only: [:show, :update, :destroy]
+  resources :baskets, only: [:show, :update, :destroy] do
+    member do
+      get 'checkout'
+      patch 'checkout'
+    end
+  end
 
   resources :signatures, only: [:index, :show] do
     resources :subscription, only: [:create]

@@ -1,5 +1,7 @@
 <div class="container mt-5 content">
-  <h1>My Basket</h1>
+  <h1 class="text-center pb-3">My Basket</h1>
+  <hr>
+  <p class="pb-2 text-center"><em><%= "Hmmmm... looks like your basket is empty. Add orders!" if @basket.orders.empty? %></em></p>
     <div class="row">
       <% @basket.orders.each do |order| %>
         <div class="col-12 col-md-6 offset-lg-3">
@@ -8,8 +10,7 @@
               <div>
                 <h2 class= "mb-3"><%= order.product.name %></h2>
                 <p style="font-size: 16px;">R$ <%= order.product.price %> - Qty: <%= order.quantity  %></p>
-                <button id="sweet-alert" class="btn btn-outline-warning mt-2">Delete</button>
-                  <%= link_to "", order_path(order), method: :delete, id: "delete-link", class: "hidden" %>
+                <%= link_to "Delete", order_path(order), method: :delete, class: "btn btn-outline-danger mt-2" %>
               </div>
             </div>
           </div>
@@ -17,6 +18,7 @@
       <% end %>
     </div>
     <div class="d-flex justify-content-start pb-3">
-          <%= link_to 'Back', products_path, class: "btn btn-outline-primary" %>
+          <%= link_to 'Back', products_path, class: "btn btn-primary" %>
+          <%= link_to "Proceed to Checkout", checkout_basket_path(@basket), method: :patch, class:"btn btn-success" %>
     </div>
 </div>

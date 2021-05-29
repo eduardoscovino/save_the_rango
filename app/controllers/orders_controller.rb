@@ -1,6 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :set_orders, only: [:destroy]
-  skip_before_action :verify_autheticity_token       
+  before_action :set_orders, only: [:destroy]  
 
   def create
     if current_user.basket
