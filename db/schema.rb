@@ -69,11 +69,13 @@ ActiveRecord::Schema.define(version: 2021_05_25_224012) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "signature_id", null: false
     t.string "first_name"
     t.string "last_name"
     t.string "role"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["signature_id"], name: "index_users_on_signature_id"
   end
 
   add_foreign_key "baskets", "users"
@@ -82,4 +84,5 @@ ActiveRecord::Schema.define(version: 2021_05_25_224012) do
   add_foreign_key "products", "users"
   add_foreign_key "subscriptions", "signatures"
   add_foreign_key "subscriptions", "users"
+  add_foreign_key "users", "signatures"
 end
