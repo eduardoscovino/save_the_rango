@@ -1,5 +1,4 @@
 <h1>Signatures#show</h1>
-<p>Find me in app/views/signatures/show.html.erb</p>
 
 <div class="container py-5">
   <div class="row">
@@ -8,15 +7,16 @@
 
           <!-- image of a signature  -->
 
-        <div class="card-signature-infos">
+        <div class="card mb-4">
           <div>
             <h2 class= "mb-3"><%= @signature.title %></h2>
-            <p style="font-size: 16px;"> R$ <%= @signature.price %></p>
-            <p><%= @signature.description %></p>
-            <p><%= @signature.type_of %> </p>
+              <p style="font-size: 16px;"> R$ <%= @signature.price %></p>
+              <p><%= @signature.description %></p>
+              <p><%= @signature.type_of %> </p>
 
-            <%= form_tag signature_path(@signature), class: "pt-3", method: :get do %>
-              <%= submit_tag "Choose this signature", class: "btn btn-outline-primary" %>
+            <% if policy(Subscription).create? %>
+
+            <%= link_to "choose this signature", signature_subscriptions_path(@signature), class: "pt-3", class: "btn btn-outline-primary", method: :post %>
             <% end %>
 
           </div>

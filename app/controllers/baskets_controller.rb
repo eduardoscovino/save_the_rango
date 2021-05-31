@@ -18,6 +18,9 @@ class BasketsController < ApplicationController
     redirect_to products_path
   end
 
+  def checkout
+  end
+
   private
 
   def set_baskets
