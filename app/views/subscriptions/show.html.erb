@@ -3,21 +3,21 @@
     <div class="col-12 col-md-6 offset-lg-3">
       <div class="card " >
         <h1>Checkout  </h1>
-        <h2> Please revise your purchase </h2>
-        <h2> <%= @subscription.signature.title %></h2>
-          <h3> that you'll receive on a <%= @subscription.signature.type_of %></h3>
-            <h4> at a price of <%= @subscription.signature.price %></h4>
+          <h2> Please revise your purchase </h2>
+          <h2> <%= @subscription.signature.title %></h2>
+            <h3> that you'll receive on a <%= @subscription.signature.type_of %></h3>
+              <h4> at a price of <%= @subscription.signature.price %></h4>
+
 
           <div class ="d-flex justify-content-around">
             <div class="d-flex justify-content-start pb-3 ">
-
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#CheckoutModal">
             Confirm You signature
           </button>
           </div>
 
             <div class="d-flex justify-content-start pb-3">
-              <%= link_to 'Back', signatures_path, class: "btn btn-outline-primary" %>
+              <%= link_to 'Cancel', signatures_path, class: "btn btn-outline-primary" %>
             </div>
           </div>
 
@@ -38,13 +38,12 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        Please send us your proof of payment
+      <div class="modal-body justify-content-center">
+        <h5>Congrats! You are participating actively to reduce wastes</h5>
+        <p>Please send us your proof of payment</p>
       </div>
-      <div class="modal-footer" font-color ="white">
-
-        <button ><%= link_to 'Finalize', root_path, class:"btn-outline-primary" %></button>
-        <button ><%= link_to 'Cancel', signatures_path, class:"btn-outline-primary" %></button>
+      <div class="modal-footer d-flex justify-content-around">
+        <%= link_to 'home', root_path, type:"button", class:"btn-outline-primary" %>
 
       </div>
     </div>
