@@ -7,6 +7,7 @@ class SignaturesController < ApplicationController
   end
 
   def show
+
     authorize @signature
   end
 

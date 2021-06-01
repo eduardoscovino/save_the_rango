@@ -15,7 +15,12 @@ Rails.application.routes.draw do
   end
 
   resources :signatures, only: [:index, :show] do
-    resources :subscription, only: [:create]
+    resources :subscriptions, only: [:create]
   end
-  resources :subscription, only: [:show, :destroy]
+
+  resources :subscriptions, only: [:show, :checkout, :destroy]
+
+  # post '/subscriptions/signature/:id', to: 'subscriptions#create', as: 'subscriptions'
+
+
 end
