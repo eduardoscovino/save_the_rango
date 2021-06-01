@@ -1,9 +1,14 @@
         <div data-refresh-list-target="list">
-          <div class="container mt-5 content">
+          <div class="container my-3 content">
+              <% if user_signed_in? %>
+                <% if policy(Basket).show? && current_user.basket %>
+                  <%= link_to "My basket", basket_path(current_user.basket), class: "btn btn-primary" %>
+                <% end %>
+              <% end %>
               <% if params[:query].blank? %>
-                <h1 class="h3"><%= pluralize products.count, 'product' %> available</h1>
+                <h1 class="h3 mt-2"><%= pluralize products.count, 'product' %> available</h1>
               <% else %>
-                <h1 class="h3"><%= pluralize products.count, 'result' %> for <code><%= params[:query] %></code></h1>
+                <h1 class="h3 mt-2"><%= pluralize products.count, 'result' %> for <code><%= params[:query] %></code></h1>
               <% end %>
             <div class="row">
               <% @products.each do |product| %>
@@ -13,6 +18,7 @@
                     <div class="card-body">
                       <%= link_to product.name, product_path(product), class: "text-decoration-none" %>
                       <p>R$ <%= product.price %></p>
+                      <p>ID: <%= product.id %></p>
                     </div>
                   </div>
                  </div>

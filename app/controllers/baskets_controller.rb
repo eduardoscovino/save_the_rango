@@ -1,5 +1,5 @@
 class BasketsController < ApplicationController
-  before_action :set_baskets, only: [:show, :update, :destroy]
+  before_action :set_baskets, only: [:show, :update, :destroy, :checkout]
   skip_before_action :verify_authenticity_token
 
   def show
@@ -19,6 +19,7 @@ class BasketsController < ApplicationController
   end
 
   def checkout
+    authorize @basket
   end
 
   private
@@ -28,6 +29,6 @@ class BasketsController < ApplicationController
   end
 
   def basket_params
-    params.require(:basket).permit(:status)
+    params.require(:basket).permit(:user_id)
   end
 end

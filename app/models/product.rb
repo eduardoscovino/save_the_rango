@@ -1,6 +1,5 @@
 class Product < ApplicationRecord
   has_many :orders, dependent: :destroy
-  validates :name, uniqueness: true, presence: true
   validates :price, presence: true
 
   include PgSearch::Model
@@ -10,3 +9,4 @@ class Product < ApplicationRecord
       tsearch: { prefix: true }
     }
 end
+
