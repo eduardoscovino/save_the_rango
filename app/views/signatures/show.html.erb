@@ -7,7 +7,7 @@
 
           <!-- image of a signature  -->
 
-        <div class="card mb-4">
+        <div class="card mb-4 px-4 py-4">
           <div>
             <h2 class= "mb-3"><%= @signature.title %></h2>
               <p style="font-size: 16px;"> R$ <%= @signature.price %></p>
@@ -15,18 +15,20 @@
               <p><%= @signature.type_of %> </p>
 
             <% if policy(Subscription).create? %>
+                <div class="d-flex justify-content-around mt-3 mb-3 py-2 icons">
+                    <%= link_to "choose this signature", signature_subscriptions_path(@signature), class: "pt-3 btn btn-outline-primary", method: :post %>
+                    <% end %>
 
-            <%= link_to "choose this signature", signature_subscriptions_path(@signature), class: "pt-3", class: "btn btn-outline-primary", method: :post %>
-            <% end %>
+
+                    <%= link_to "Back", signatures_path, class: "btn btn-outline-primary pt-3" %>
+
+                </div>
+
 
           </div>
         </div>
 
-          <div class="d-flex justify-content-around mt-4 py-2 icons">
-            <%= link_to signatures_path, title: "Back" do %>
-              <i class="fas fa-undo-alt"></i>
-            <% end %>
-        </div>
+
       </div>
     </div>
   </div>

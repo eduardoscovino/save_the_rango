@@ -29,9 +29,10 @@ class SubscriptionsController < ApplicationController
   end
 
   def destroy
-    # subscription.destroy
-    # authorize subscription
-    # redirect_to signature_path
+    @subscription = Subscription.find(params[:id])
+    authorize @subscription
+    @subscription.destroy
+    redirect_to signatures_path
   end
 
  private

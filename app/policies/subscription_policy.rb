@@ -18,7 +18,7 @@ class SubscriptionPolicy < ApplicationPolicy
   end
 
   def destroy?
-    record.subscription.user == user if user
+    true
   end
 
 end
