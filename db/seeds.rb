@@ -5,6 +5,11 @@ require "json"
 OpenURI::Buffer.send :remove_const, 'StringMax' if OpenURI::Buffer.const_defined?('StringMax')
 OpenURI::Buffer.const_set 'StringMax', 0
 
+fruits = ["apple", "maracuja", "orange", "banana", "mango", "strawberry", "grapes", "watermelon", "lemon", "avocado", "peach",
+"blueberry", "pineapple", "cherry", "pear", "raspberry", "blackberry", "plum", "nectarine", "kiwi"]
+vegetables = ["carrot", "potato", "onion", "garlic", "celery", "broccoli", "asparagus", "cauliflower", "corn", "cucumber", 
+"eggplant", "mushroom", "pumpkin", "tomato", "beetroot", "peas", "zucchini", "sweet potato", "artichoke", "cabbage"]
+
 # create an admin user with role admin
 puts "Creating users..."
 if !User.find_by(email: "admin@gmail.com")
@@ -17,7 +22,7 @@ if !User.find_by(email: "admin@gmail.com")
 end
 puts "Users created!"
 
-# create signatures
+# Destroying and creating signatures
 puts 'Destroying signatures...'
 Signature.destroy_all
 puts 'Creating signatures...'
@@ -43,32 +48,33 @@ Signature.create!({
 
 })
 puts 'Finished!'
-# create products
+
+# Destroying and creating products
 puts 'Destroying all products...'
 Product.destroy_all
+
 puts 'Creating 20 fake vegetables...'
-5.times do
+20.times do
   product = Product.create!(
-    name: ["carrot", "potato", "onion", "garlic", "celery", "broccoli"].sample,
+    name: ["carrot", "potato", "onion", "garlic", "celery", "broccoli", "asparagus", "cauliflower", "corn", "cucumber", 
+          "eggplant", "mushroom", "pumpkin", "tomato", "beetroot", "peas", "zucchini", "sweet potato", "artichoke", "cabbage"].sample,
     expiration_date: ['2021-06-20', '2021-06-21', '2021-06-22', '2021-06-22', '2021-06-23'].sample,
     price: rand(2..8),
     available_quantity: rand(10..20)
   )
-  puts "Product #{product.name} created."
   file_serialized = URI.open("https://api.unsplash.com/search/photos?query=#{product.name}&client_id=qCt2qRB46agmjH4iuGBJdLeKaWANwpnHt6tZ53ywE74").read
   file_full = JSON.parse(file_serialized)
-  puts "#{file_full["results"][0]["urls"]}"
   file = URI.open(file_full["results"][0]["urls"]["small"])
   product.photo.attach(io: file, filename: '', content_type: 'image/png')
   product.save!
-  puts "Photo attach created!"
 end
 puts 'Finished!'
 
 puts 'Creating 20 fake fruits...'
-5.times do
+20.times do
   product = Product.create!(
-    name: ["apple", "maracuja", "orange", "banana", "mango", "strawberry"].sample,
+    name: ["apple", "maracuja", "orange", "banana", "mango", "strawberry", "grapes", "watermelon", "lemon", "avocado", "peach",
+          "blueberry", "pineapple", "cherry", "pear", "raspberry", "blackberry", "plum", "nectarine", "kiwi"].sample,
     expiration_date: ['2021-06-20', '2021-06-21', '2021-06-22', '2021-06-22', '2021-06-23'].sample,
     price: rand(2..8),
     available_quantity: rand(10..20)
