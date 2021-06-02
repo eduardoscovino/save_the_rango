@@ -4,16 +4,17 @@
     <div class="row">
       <% @basket.orders.each do |order| %>
         <div class="col-12 col-md-6 offset-lg-3">
-          <div class="card-product mb-4">
-            <div class="card-product-infos">
+          <div class="order-item m-4">
+            <%= cl_image_tag order.product.photo.key, width: 400, height: 300, crop: :fit %>
+            <div class="order-item-infos">
               <h2 class= "mb-3"><%= order.product.name %></h2>
-              <p style="font-size: 16px;">R$ <%= order.product.price * order.product.available_quantity %> - Qty: <%= order.product.available_quantity  %></p>
+              <p style="font-size: 16px;">R$ <%= number_with_precision(order.product.price, precision: 2, separator: ',', delimiter: '.') %></p>
             </div>
           </div>
         </div>
       <% end %>
     </div>
     <div class="d-flex justify-content-center pb-3">
-          <%= link_to 'Back', products_path, class: "btn btn-outline-primary" %>
+          <%= link_to 'Back', products_path, class: "btn btn-outline-primary my-3" %>
     </div>
 </div>

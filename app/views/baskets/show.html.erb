@@ -9,7 +9,7 @@
             <%= cl_image_tag order.product.photo.key, width: 400, height: 300, crop: :fit %>
             <div class="order-item-infos">
               <h2 class= "mb-3"><%= order.product.name %></h2>
-              <p style="font-size: 16px;">R$ <%= order.product.price %> - Qty: <%= order.product.available_quantity  %></p>
+              <p style="font-size: 16px;">R$ <%= number_with_precision(order.product.price, precision: 2, separator: ',', delimiter: '.') %> - Qty: <%= order.product.available_quantity  %></p>
               <%= link_to order_path(order), method: :delete do %>
                 <i class="fas fa-trash-alt"></i>
               <% end %>
@@ -23,4 +23,3 @@
       <%= link_to "Proceed to Checkout", checkout_basket_path(@basket), method: :patch, class:"btn btn-success ml-4" %>
     </div>
 </div>
-<%= render 'shared/footer' %>

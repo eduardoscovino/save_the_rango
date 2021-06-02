@@ -13,7 +13,7 @@
             <h2 class= "mb-3"><%= link_to signature.title, signature_path(signature.id)%></h2>
             <h3><%= signature.description %></h3>
             <p><%= signature.type_of %></p>
-            <p><%= signature.price %> R$</p>
+            <p><%= number_with_precision(signature.price, precision: 2, separator: ',', delimiter: '.') %> R$</p>
 
           </div>
         </div>
