@@ -1,1 +1,17 @@
 // Specific CSS for your home-page
+#hello-sentence {
+  font-size: large;
+}
+
+#home-page-top {
+  background-color: gray;
+}
+
+#main-picture {
+  width: 500px;
+}
+
+#purchase-buttons {
+  display: flex;
+  justify-content: space-around;
+}

@@ -1,0 +1,57 @@
+<div class="container py-2 ">
+  <div class="row ">
+    <div class="col-12 col-md-6 offset-lg-3">
+      <div class="card mb-2 px-4 py-4 justify-content-center" >
+        <h1 class="text-center mb-4">Checkout  </h1>
+          <h2 class="mb-3 text-center"> Please review your purchase: </h2>
+
+            <h2 class ="mb-3 text-center"> <%= @subscription.signature.title %></h2>
+            <h3 class ="mb-1 "> you'll receive on a <%= @subscription.signature.type_of %> basis</h3>
+              <h4 > Price: <%= @subscription.signature.price %> R$</h3>
+
+
+                <div class ="d-flex justify-content-around mt-4">
+
+                  <div class="d-flex justify-content-start pb-3 ">
+                    <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#CheckoutModal">
+                    Please Confirm You signature
+                    </button>
+                  </div>
+
+                  <div class="d-flex justify-content-start pb-3">
+                    <%= link_to 'Cancel', subscription_path(@subscription), class: "btn btn-outline-primary", method: :delete %>
+                  </div>
+                </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="CheckoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Payment Confirmed</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body justify-content-center">
+        <h5>Congrats! You are participating actively to reduce wastes</h5>
+        <p>Please send us your proof of payment</p>
+      </div>
+      <div class="modal-footer d-flex justify-content-around">
+        <%= link_to 'home', root_path, type:"button", class:"btn-outline-primary" %>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
