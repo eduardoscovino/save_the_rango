@@ -36,7 +36,9 @@ gem 'pundit'
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
 gem 'simple_form'
-gem 'pagy'
+gem 'faker'
+gem 'dotenv-rails', groups: [:development, :test]
+gem 'cloudinary'
 
 
 group :development, :test do  gem 'pry-byebug'

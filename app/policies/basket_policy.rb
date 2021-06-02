@@ -6,10 +6,10 @@ class BasketPolicy < ApplicationPolicy
   end
 
   def show?
-    user.role == 'Customer' if user
+    user.role == 'Customer' || 'admin' if user
   end
 
   def checkout?
-    user.role == 'Customer' if user
+    user.role == 'Customer' || 'admin' if user
   end
 end

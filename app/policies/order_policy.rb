@@ -6,7 +6,7 @@ class OrderPolicy < ApplicationPolicy
   end
 
   def create?
-    user.role == 'Customer' if user
+    user.role == 'Customer' || 'admin' if user
   end
 
   def destroy?
