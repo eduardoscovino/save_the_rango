@@ -1,128 +1,152 @@
-.container-fluid {
-    background-color: #C5CAE9
-}
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-.heading {
-    font-size: 40px;
-    margin-top: 35px;
-    margin-bottom: 30px;
-    padding-left: 20px
-}
-
-.card {
-    border-radius: 10px !important;
-    margin-top: 60px;
-    margin-bottom: 60px
-}
-
-.form-card {
-    margin-left: 20px;
-    margin-right: 20px
-}
-
-.form-card input,
-.form-card textarea {
-    padding: 10px 15px 5px 15px;
-    border: none;
-    border: 1px solid lightgrey;
-    border-radius: 6px;
-    margin-bottom: 25px;
-    margin-top: 2px;
-    width: 100%;
+* {
+    padding: 0;
+    margin: 0;
     box-sizing: border-box;
-    font-family: arial;
-    color: #2C3E50;
-    font-size: 14px;
-    letter-spacing: 1px
+    font-family: 'Roboto', sans-serif
 }
 
-.form-card input:focus,
-.form-card textarea:focus {
-    -moz-box-shadow: 0px 0px 0px 1.5px skyblue !important;
-    -webkit-box-shadow: 0px 0px 0px 1.5px skyblue !important;
-    box-shadow: 0px 0px 0px 1.5px skyblue !important;
-    font-weight: bold;
-    border: 1px solid #304FFE;
-    outline-width: 0
+body {
+    background-color: #fff3e0
 }
 
-.input-group {
+#order-heading {
+    background-color: #edf4f7;
     position: relative;
-    width: 100%;
-    overflow: hidden
+    border-top-left-radius: 25px;
+    max-width: 800px;
+    padding-top: 20px;
+    margin: 30px auto 0px
 }
 
-.input-group input {
-    position: relative;
-    height: 80px;
-    margin-left: 1px;
-    margin-right: 1px;
-    border-radius: 6px;
-    padding-top: 30px;
-    padding-left: 25px
+#order-heading .text-uppercase {
+    font-size: 0.9rem;
+    color: #777;
+    font-weight: 600
 }
 
-.input-group label {
+#order-heading .h4 {
+    font-weight: 600
+}
+
+#order-heading .h4+div p {
+    font-size: 0.8rem;
+    color: #777
+}
+
+.close {
+    padding: 10px 15px;
+    background-color: #777;
+    border-radius: 50%;
     position: absolute;
-    height: 24px;
-    background: none;
-    border-radius: 6px;
-    line-height: 48px;
-    font-size: 15px;
-    color: gray;
-    width: 100%;
-    font-weight: 100;
-    padding-left: 25px
+    right: -15px;
+    top: -20px
 }
 
-input:focus+label {
-    color: #304FFE
+.wrapper {
+    padding: 0px 50px 50px;
+    max-width: 800px;
+    margin: 0px auto 40px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px
 }
 
-.btn-pay {
-    background-color: #304FFE;
-    height: 60px;
-    color: #ffffff !important;
-    font-weight: bold
+.table th {
+    border-top: none
 }
 
-.btn-pay:hover {
-    background-color: #3F51B5
+.table thead tr.text-uppercase th {
+    font-size: 0.8rem;
+    padding-left: 0px;
+    padding-right: 0px
 }
 
-.fit-image {
-    width: 100%;
-    object-fit: cover
+.table tbody tr th,
+.table tbody tr td {
+    font-size: 0.9rem;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-bottom: 5px
 }
 
-img {
+.table-responsive {
+    height: 100px
+}
+
+.list div b {
+    font-size: 0.8rem
+}
+
+.list .order-item {
+    font-weight: 600;
+    color: #6db3ec
+}
+
+.list:hover {
+    background-color: #f4f4f4;
+    cursor: pointer;
     border-radius: 5px
 }
 
-.radio-group {
-    position: relative;
-    margin-bottom: 25px
+label {
+    margin-bottom: 0;
+    padding: 0;
+    font-weight: 900
 }
 
-.radio {
-    display: inline-block;
-    border-radius: 6px;
-    box-sizing: border-box;
-    border: 2px solid lightgrey;
-    cursor: pointer;
-    margin: 12px 25px 12px 0px
+button.btn {
+    font-size: 0.9rem;
+    background-color: #66cdaa
 }
 
-.radio:hover {
-    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2)
+button.btn1 {
+    font-size: 0.9rem;
+    background-color: #66CD76
 }
 
-.radio.selected {
-    box-shadow: 0px 0px 0px 1px rgba(0, 0, 155, 0.4);
-    border: 2px solid blue
+button.btn:hover {
+    background-color: #5cb99a
 }
 
-.label-radio {
-    font-weight: bold;
-    color: #000000
+.price {
+    color: #5cb99a;
+    font-weight: 700
+}
+
+p.text-justify {
+    font-size: 0.9rem;
+    margin: 0
+}
+
+.row {
+    margin: 0px
+}
+
+.subscriptions {
+    border: 1px solid #ddd;
+    border-left: 5px solid #ffa500;
+    padding: 10px
+}
+
+.subscriptions div {
+    font-size: 0.9rem
+}
+
+@media(max-width: 425px) {
+    .wrapper {
+        padding: 20px
+    }
+
+    body {
+        font-size: 0.85rem
+    }
+
+    .subscriptions div {
+        padding-left: 5px
+    }
+
+    img+label {
+        font-size: 0.75rem
+    }
 }

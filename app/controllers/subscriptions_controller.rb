@@ -9,6 +9,10 @@ class SubscriptionsController < ApplicationController
 
   def show
     @subscription = Subscription.find(params[:id])
+
+    @time = Time.new.strftime("%d of %B, %Y")
+    @discount = @subscription.signature.price.to_i.fdiv(10)
+    @total = (@subscription.signature.price.to_i - @discount)
     authorize @subscription
   end
 
