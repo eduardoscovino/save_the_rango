@@ -18,7 +18,9 @@ end
 puts "Users created!"
 
 # create signatures
-  puts 'Creating signatures...'
+puts 'Destroying signatures...'
+Signature.destroy_all
+puts 'Creating signatures...'
 Signature.create!({
   title: "Veggy Choice",
   type_of: "Weekly delivery",
@@ -42,35 +44,42 @@ Signature.create!({
 })
 puts 'Finished!'
 # create products
+puts 'Destroying all products...'
+Product.destroy_all
 puts 'Creating 20 fake vegetables...'
-20.times do
+5.times do
   product = Product.create!(
-    name: Faker::Food.vegetables,
+    name: ["carrot", "potato", "onion", "garlic", "celery", "broccoli"].sample,
     expiration_date: ['2021-06-20', '2021-06-21', '2021-06-22', '2021-06-22', '2021-06-23'].sample,
     price: rand(2..8),
     available_quantity: rand(10..20)
   )
-  url = "https://api.unsplash.com/search/photos?query=#{product.name}&client_id=d77PusuQGAIyMMG4_Fy__3Kguy6kZ9IRW98_HTCngNc" # NÃO PRECISA SER DO CLOUDINARY
-  filename = File.basename(URI.parse(url).path)
-  file = URI.open(url)
-  product.photo.attach(io: file, filename: filename)
+  puts "Product #{product.name} created."
+  file_serialized = URI.open("https://api.unsplash.com/search/photos?query=#{product.name}&client_id=qCt2qRB46agmjH4iuGBJdLeKaWANwpnHt6tZ53ywE74").read
+  file_full = JSON.parse(file_serialized)
+  puts "#{file_full["results"][0]["urls"]}"
+  file = URI.open(file_full["results"][0]["urls"]["small"])
+  product.photo.attach(io: file, filename: '', content_type: 'image/png')
   product.save!
+  puts "Photo attach created!"
 end
 puts 'Finished!'
 
 puts 'Creating 20 fake fruits...'
-20.times do
+5.times do
   product = Product.create!(
-    name: Faker::Food.fruits,
+    name: ["apple", "maracuja", "orange", "banana", "mango", "strawberry"].sample,
     expiration_date: ['2021-06-20', '2021-06-21', '2021-06-22', '2021-06-22', '2021-06-23'].sample,
     price: rand(2..8),
     available_quantity: rand(10..20)
   )
-  url = "https://api.unsplash.com/search/photos?query=#{product.name}&client_id=d77PusuQGAIyMMG4_Fy__3Kguy6kZ9IRW98_HTCngNc" # NÃO PRECISA SER DO CLOUDINARY
-  filename = File.basename(URI.parse(url).path)
-  file = URI.open(url)
-  product.photo.attach(io: file, filename: filename)
+  puts "Product #{product.name} created."
+  file_serialized = URI.open("https://api.unsplash.com/search/photos?query=#{product.name}&client_id=qCt2qRB46agmjH4iuGBJdLeKaWANwpnHt6tZ53ywE74").read
+  file_full = JSON.parse(file_serialized)
+  file = URI.open(file_full["results"][0]["urls"]["small"])
+  product.photo.attach(io: file, filename: '', content_type: 'image/png')
   product.save!
 end
 puts 'Finished!'
+
 
