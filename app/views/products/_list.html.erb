@@ -1,34 +1,29 @@
-        <div data-refresh-list-target="list">
-          <div class="container my-3 content">
-              <% if user_signed_in? %>
-                <% if policy(Basket).show? && current_user.basket %>
-                  <%= link_to "My basket", basket_path(current_user.basket), class: "btn btn-primary" %>
-                <% end %>
-              <% end %>
-              <% if params[:query].blank? %>
-                <h1 class="h3 mt-2"><%= pluralize products.count, 'product' %> available</h1>
-              <% else %>
-                <h1 class="h3 mt-2"><%= pluralize products.count, 'result' %> for <code><%= params[:query] %></code></h1>
-              <% end %>
-            <div class="row">
-              <% @products.each do |product| %>
-                <div class="col-12 col-md-6 col-lg-6">
-                  <div class="card-product mb-4">
-                    <%= cl_image_tag product.photo.key, width: 400, height: 300, crop: :fit %>
-                    <div class="card-product-infos">
-                      <div>
-                        <%= link_to product.name, product_path(product), class: "text-decoration-none" %>
-                        <p>R$ <%= product.price %></p>
-                        <p>ID: <%= product.id %></p>
-                      </div>
-                    </div>
-                  </div>
-                 </div>
-              <% end %>
-            </div>
+<div data-refresh-list-target="list" class="my-3">
+  <% if user_signed_in? %>
+    <% if policy(Basket).show? && current_user.basket %>
+        <%= link_to "My basket", basket_path(current_user.basket), class: "btn btn-primary m-3" %>
+    <% end %>
+  <% end %>
+  <% if params[:query].blank? %>
+    <h1 class="h3 m-3"><%= pluralize products.count, 'product' %> available</h1>
+  <% else %>
+    <h1 class="h3 m-3"><%= pluralize products.count, 'result' %> for <code><%= params[:query] %></code></h1>
+  <% end %>
+  <div class="cards">
+    <% @products.each do |product| %>
+      <div class="grid-card">
+        <%= cl_image_tag product.photo.key, width: 400, height: 300, crop: :fit %>
+        <div class="card-product-infos">
+          <div>
+            <%= link_to product.name, product_path(product), class: "text-decoration-none" %>
+            <p>R$ <%= product.price %></p>
           </div>
         </div>
+      </div>
+    <% end %>
+  </div>
+</div>
 
-
+        
         
         
