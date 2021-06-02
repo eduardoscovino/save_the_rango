@@ -90,6 +90,8 @@ GEM
       railties (>= 3.2)
     erubi (1.10.0)
     execjs (2.7.0)
+    faker (2.17.0)
+      i18n (>= 1.6, < 2)
     ffi (1.15.1)
     font-awesome-sass (5.15.1)
       sassc (>= 1.11)
@@ -118,7 +120,6 @@ GEM
     nokogiri (1.11.5-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
-    pagy (3.13.0)
     pg (1.2.3)
     pg_search (2.3.5)
       activerecord (>= 5.2)
@@ -246,10 +247,10 @@ DEPENDENCIES
   capybara (>= 2.15)
   devise
   dotenv-rails
+  faker
   font-awesome-sass
   jbuilder (~> 2.7)
   listen (~> 3.2)
-  pagy
   pg (>= 0.18, < 2.0)
   pg_search (~> 2.3.0)
   pry-byebug
