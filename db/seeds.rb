@@ -5,6 +5,11 @@ require "json"
 OpenURI::Buffer.send :remove_const, 'StringMax' if OpenURI::Buffer.const_defined?('StringMax')
 OpenURI::Buffer.const_set 'StringMax', 0
 
+fruits = ["apple", "maracuja", "orange", "banana", "mango", "strawberry", "grapes", "watermelon", "lemon", "avocado", "peach",
+"blueberry", "pineapple", "cherry", "pear", "raspberry", "blackberry", "plum", "nectarine", "kiwi"]
+vegetables = ["carrot", "potato", "onion", "garlic", "celery", "broccoli", "asparagus", "cauliflower", "corn", "cucumber", 
+"eggplant", "mushroom", "pumpkin", "tomato", "beetroot", "peas", "zucchini", "sweet potato", "artichoke", "cabbage"]
+
 # create an admin user with role admin
 puts "Creating users..."
 if !User.find_by(email: "admin@gmail.com")
@@ -17,7 +22,7 @@ if !User.find_by(email: "admin@gmail.com")
 end
 puts "Users created!"
 
-# create signatures
+# Destroying and creating signatures
 puts 'Destroying signatures...'
 Signature.destroy_all
 puts 'Creating signatures...'
@@ -43,9 +48,11 @@ Signature.create!({
 
 })
 puts 'Finished!'
-# create products
+
+# Destroying and creating products
 puts 'Destroying all products...'
 Product.destroy_all
+
 puts 'Creating 20 fake vegetables...'
 20.times do
   product = Product.create!(
