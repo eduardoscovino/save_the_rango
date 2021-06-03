@@ -1,13 +1,13 @@
 <div data-refresh-list-target="list" class="my-3">
   <% if user_signed_in? %>
     <% if policy(Basket).show? && current_user.basket %>
-        <%= link_to "My basket", basket_path(current_user.basket), class: "btn btn-primary m-3" %>
+        <%= link_to "My basket", basket_path(current_user.basket), class: "btn-main" %>
     <% end %>
   <% end %>
   <% if params[:query].blank? %>
-    <h1 class="h3 m-3"><%= pluralize products.count, 'product' %> available</h1>
+    <h1 class="h3 m-3" style="opacity: 0.7;"><%= pluralize products.count, 'product' %> you can save from throwing out!</h1>
   <% else %>
-    <h1 class="h3 m-3"><%= pluralize products.count, 'result' %> for <code><%= params[:query] %></code></h1>
+    <h1 class="h3 m-3" style="opacity: 0.7;"><%= pluralize products.count, 'result' %> for <code><%= params[:query] %></code></h1>
   <% end %>
   <div class="cards">
     <% @products.each do |product| %>
