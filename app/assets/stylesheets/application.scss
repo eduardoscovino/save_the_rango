@@ -29,4 +29,10 @@ html, body {
 body {
   display: flex;
   flex-direction: column;
+  background-color: #00aa4f;
+  background-image: linear-gradient(90deg, #00aa4f 0%, #33e84e 50%, #d3f577 100%);
+}
+
+.object-fit-cover {
+  object-fit: cover;
 }
