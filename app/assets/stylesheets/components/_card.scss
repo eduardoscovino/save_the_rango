@@ -4,8 +4,8 @@
   border-radius: 8px;
 }
 
-.card-product .card-product-infos {
-  padding: 16px;
+.card-product-infos {
+  padding: 10px 36px 36px 36px;
   min-height: 150px;
   background-color: white;
 }
@@ -36,4 +36,8 @@
     box-shadow: 2px 2px 4px 2px rgba(0,0,0,0.1);
     font-size:18px;
   }
+}
+
+#nomargin {
+  margin: 0;
 }
