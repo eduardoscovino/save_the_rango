@@ -16,6 +16,13 @@
   margin: auto;
 }
 
+.nav-link {
+  color: white;
+  &:hover {
+    color: lightgray;
+  }
+}
+
 .Title {
 
   font-family: "Catamaran", sans-serif;

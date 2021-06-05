@@ -1,6 +1,8 @@
 // Specific CSS for your home-page
-#hello-sentence {
-  font-size: large;
+.hello-sentence {
+  color: white;
+  font-size: 40px;
+  font-family: $body-font;
 }
 
 #main-picture {
