@@ -41,3 +41,8 @@
 #nomargin {
   margin: 0;
 }
+
+.card-signature {
+  transition: box-shadow .2s;
+  border-radius: 8px;
+}

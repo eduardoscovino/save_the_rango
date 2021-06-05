@@ -15,7 +15,7 @@
         <%= cl_image_tag product.photo.key, width: 400, height: 300, crop: :fit %>
         <div class="card-product-infos">
           <div>
-            <%= link_to product.name, product_path(product), class: "text-decoration-none" %>
+            <h5><%= link_to product.name, product_path(product), class: "text-decoration-none stretched-link" %></h5>
             <p>R$ <%= product.price %></p>
           </div>
         </div>

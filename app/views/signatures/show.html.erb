@@ -1,34 +1,20 @@
-<h1>Signatures#show</h1>
-
-<div class="container py-5">
+<div class="container py-5 content">
   <div class="row">
     <div class="col-12 col-md-6 offset-lg-3">
       <div class="card-signature mb-4" id="killed-hover-oncard">
-
-          <!-- image of a signature  -->
-
-        <div class="card mb-4 px-4 py-4">
-          <div>
-            <h2 class= "mb-3"><%= @signature.title %></h2>
+          <div class="card-product-infos">
+            <h2 class= "my-3"><%= @signature.title %></h2>
               <p style="font-size: 16px;"> R$ <%= @signature.price %></p>
               <p><%= @signature.description %></p>
               <p><%= @signature.type_of %> </p>
-
             <% if policy(Subscription).create? %>
-                <div class="d-flex justify-content-around mt-3 mb-3 py-2 icons">
-                    <%= link_to "choose this signature", signature_subscriptions_path(@signature), class: "pt-3 btn btn-outline-primary", method: :post %>
+                <div class="d-flex justify-content-around">
+                    <%= link_to "choose this signature", signature_subscriptions_path(@signature), class: "btn-green", method: :post %>
                     <% end %>
-
-
-                    <%= link_to "Back", signatures_path, class: "btn btn-outline-primary pt-3" %>
-
+                    <%= link_to "Back", signatures_path, class: "btn-green" %>
                 </div>
-
-
           </div>
         </div>
-
-
       </div>
     </div>
   </div>

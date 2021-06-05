@@ -19,6 +19,11 @@
   border-radius: 50px;
 }
 
+.b-radius-28 {
+  border-radius: 28px;
+}
+
+
 
 .btn-homepage {
   color: #000000;
@@ -34,5 +39,22 @@
 .btn-homepage:hover {
   opacity: .7;
   color: #000000;
+  text-decoration: none;
+}
+
+.btn-green {
+  color: #383434;
+  background-color: #2ADD4E;
+  padding: 8px 24px;
+  margin: 16px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.btn-green:hover {
+  color: #000000;
+  background-color: #78EE60;
   text-decoration: none;
 }
