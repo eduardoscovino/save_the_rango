@@ -4,7 +4,7 @@
     <div class="row">
       <% @basket.orders.each do |order| %>
         <div class="col-12 col-md-6 offset-lg-3">
-          <div class="order-item m-4">
+          <div class="order-item m-2">
             <%= cl_image_tag order.product.photo.key, width: 400, height: 300, crop: :fit %>
             <div class="order-item-infos">
               <h2 class= "mb-3"><%= order.product.name %></h2>
