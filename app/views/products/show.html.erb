@@ -1,9 +1,9 @@
 <div class="container content py-5">
   <div class="row">
     <div class="col-12 col-md-6 offset-lg-3">
-      <div class="card mb-4">
-        <%= image_tag "orange.jpg", class: "card-img-top" %>
-          <div class="card-body">
+      <div class="card-product mb-4 b-radius-50" >
+        <%= cl_image_tag @product.photo.key, width: 400, height: 300, crop: :fit %>
+          <div class="card-product-infos">
             <h3 class= "mb-3"><%= @product.name %></h2>
             <p> Until: <%= @product.expiration_date %></p>
             <p> R$ <%= @product.price %></p>
@@ -12,7 +12,7 @@
             <% end %>
           </div>
       </div>
-    <%= link_to "Back", products_path, class: "nav-link", class: "btn btn-success" %>
+    <%= link_to "Back", products_path, class: "nav-link", class: "btn-main", id: "nomargin" %>
     </div>
   </div>
 </div>
