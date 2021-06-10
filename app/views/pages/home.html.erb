@@ -4,6 +4,15 @@
     <% if current_user %>
       <div class="container mt-2">
         <p class="hello-sentence">Hello, <%= current_user.first_name %>!</p>
+        <p>
+          <span class="hello-sentence" id="banner-typed-text"></span>
+        </p>
+      </div>
+    <% else %>
+      <div class="container mt-2">
+        <p>
+          <span class="hello-sentence" id="banner-typed-text"></span>
+        </p>
       </div>
     <% end %>
   </div>
