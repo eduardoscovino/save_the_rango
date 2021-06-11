@@ -1,15 +1,80 @@
 // Specific CSS for your home-page
 .hello-sentence {
   color: white;
-  font-size: 40px;
-  font-family: $body-font;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, .2);
+  font-size: 62px;
+  font-weight: 300;
+  letter-spacing: 4px;
 }
 
 #main-picture {
-  width: 500px;
+  width: 550px;
 }
 
 #purchase-buttons {
   display: flex;
   justify-content: space-around;
+}
+
+.home-card {
+  display: flex;
+  background-color: white;
+  align-items: center;
+  border-radius: 50px;
+  overflow: hidden;
+  box-shadow: 2px 2px 10px 2px rgba(0, 0, 0, 0.25);
+  height: 500px;
+  border: 1px solid rgba(0,0,0,.125);
+
+  h3 {
+    padding-top: 50px;
+  }
+
+  p {
+    font-size: 18px;
+    margin: 0;
+    color: var(--text);
+    font-weight: 300;
+    a {
+        display: inline-block;
+        position: relative;
+        text-decoration: none;
+        color: inherit;
+        margin: 0 var(--spacing, 0px);
+        transition: margin .25s;
+        svg {
+            width: 76px;
+            height: 40px;
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translate(-50%, 7px) translateZ(0);
+            fill: none;
+            stroke: var(--stroke, var(--line));
+            stroke-linecap: round;
+            stroke-width: 2px;
+            stroke-dasharray: var(--offset, 69px) 278px;
+            stroke-dashoffset: 361px;
+            transition: stroke .25s ease var(--stroke-delay, 0s), stroke-dasharray .35s;
+        }
+        &:hover {
+            --spacing: 4px;
+            --stroke: var(--line-active);
+            --stroke-delay: .1s;
+            --offset: 180px;
+        }
+    }
+}
+}
+
+.option-card {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 20px;
+  align-items: center;
+  border-radius: 50px;
+  overflow: hidden;
+  box-shadow: 2px 2px 10px 2px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(0,0,0,.125);
 }

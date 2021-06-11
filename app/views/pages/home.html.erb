@@ -18,46 +18,82 @@
   </div>
 </div>
 <div class="container my-5 content" id="home-page-top">
-  <div class="d-flex space-between">
-    <span class="d-flex justify-content-between align-items-center text-center">
-      <div class="container my-3">
-        <div class="row align-items-center">
-          <div class="col-12">
-            <p>
-            An estimated <strong>1.3 billion tonnes of food is wasted globally each year</strong>, 1/3 of all food produced for human consumption, according to the Food and Agriculture Organization (FAO) of the United Nations and it is responsible for 8% of all greenhouse gas emissions. </p>
-
-            <p>We are on a mission to change that and beat the waste- are you with us ?
-            </p>
-
-            <p><strong>Join and  and save the rango! </strong></p>
-          </div>
-
-
-        </div>
-
-
-
-      </div>
-
-
-
-  </span>
-    <span class="picture"><%= image_tag("img_grocery.jpg", id: "main-picture") %></span>
-  </div>
-
-</div>
-<div class="container my-5 content" id="home-page-middle">
-  <span class="d-flex align-items-center text-center"><h3>We got two options for you to save the rango:</h3></span>
-  <div class="d-flex space-around my-5" id="purchase-buttons">
-    <span><%= link_to "Signatures", signatures_path, class: "nav-link", class: "btn-homepage" %></span>
-    <p>OR</p>
-    <span><%= link_to "Products", products_path, class: "nav-link", class: "btn-homepage" %></span>
-  </div>
-</div>
-<div class="container my-5 content" id="home-page-bottom">
-  <div id="mission-cards">
+  <div class="home-card">
+    <div class="p-5">
+      <p class="text-center">An estimated <strong>1.3 billion tonnes of food is wasted globally each year</strong>, 
+        1/3 of all food produced for human consumption, according to the Food and Agriculture Organization 
+        (FAO) of the United Nations and it is responsible for 8% of all greenhouse gas emissions. 
+        We are on a mission to change that and beat the <strong>WASTE</strong> - are you with us ?</p>
+      <h3 class="text-center"><strong>Join and Save the Rango!</strong></h3>
+      <p class="text-center pt-4" style="font-weight: 400;">I want to know <a href="#mission"> MORE!<svg viewBox="0 0 70 36">
+            <path d="M6.9739 30.8153H63.0244C65.5269 30.8152 75.5358 -3.68471 35.4998 2.81531C-16.1598 11.2025 
+            0.894099 33.9766 26.9922 34.3153C104.062 35.3153 54.5169 -6.68469 23.489 9.31527" /></svg></a>
+      </p>
+    </div>
     <div>
+      <%= image_tag("hold.jpg", id: "main-picture") %>
     </div>
   </div>
 </div>
+<div class="container my-5">
+  <div class="option-card">
+    <h1 class="pb-3 text-center">We've got two options for you to save the rango:</h1>
+    <div class="mb-4">
+      <%= link_to "Signatures", signatures_path, class: "btn-homepage" %>
+      <%= link_to "Products", products_path, class: "btn-homepage" %>
+    </div>
+  </div>
+</div>
+<div class="container-fluid justify-content-around my-5">
+  <a name="mission"></a>
+  <h1 class="pb-2 text-center">Our mission</h1>
+  <hr style="border-top: 1px solid rgba(0, 0, 0, 0.3); margin-bottom: 64px;">
+  <div class="row">
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card shadow-sm mx-5">
+        <img src="https://source.unsplash.com/3ujK5-7Wbro/1000x500" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Beat the waste 👍</h5>
+          <p class="card-text">In this non-stop world of ours it is complicated to give love to our plants, find ideal spots for them
+              in the house and not to forget watering them. Taking care of your own garden reduces your stress level and
+              elevates your mood, but what if you do not
+              have the time you need for that? It only gives you more pain and anxiety. Are you confused about what to do in this situation?
+              You don't know what to do with forever drying-out plants? 
+              You're not sure about whether it is getting enough sun or not? Don't know what kind of soil is good for your loved one? 
+              Do not worry! We have a SOLUTION!
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card shadow-sm mx-5">
+        <img src="https://source.unsplash.com/SVFEQ_MOn6Q/1000x500" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Nice people eat ugly food too! 🥑</h5>
+          <p class="card-text">Our target is People who love plants but don't have an outdoor garden. From the age 18 to 99 we 
+              recommend this for those who want to have a cozy home, where they can relax in a green enviroment.
+              Would you like to grow your own veggies? Or just want to decorate your place?
+              We can help you reconnect with mother nature!</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card shadow-sm mx-5">
+        <img src="https://source.unsplash.com/gIgDgWRcIFg/1000x500" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Join the community! 🌎</h5>
+          <p class="card-text"><strong>Watering reminder:</strong> You will never forget to water your plants ever again!</p>
+          <p class="card-text"><strong>A plant catalogue:</strong> You'd like some green in your house so much that you can not keep track of your plants? 
+            With our plant catalogue you can build your own greenhouse. Think of it as your personal lexicon: you can put
+            all the knowledge you have about your plant with its personalized needs. (water-need, soil quality, extra nutrients, 
+            hours of sunlight and more!)</p>
+            <p class="card-text"><strong>Make your catalogue bigger:</strong>
+              Choose and buy your next plant with WeLovePlants!
+            </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<hr style="border-top: 1px solid rgba(0, 0, 0, 0.3); margin: 64px;">
 
