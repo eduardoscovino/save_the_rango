@@ -9,19 +9,18 @@
   </div>
 </div>
 <div class="container mt-5 content">
-  <div class="signature-cards">
-  <% @signatures.each do |signature| %>
-    <div class="grid-card">
-        <%= image_tag "orange.jpg" %>
-        <div class="card-product-infos">
-          <div>
-            <h2 class= "mb-3"><%= link_to signature.title, signature_path(signature.id), class: "text-decoration-none stretched-link"%></h2>
-            <p><%= signature.description %></p>
-            <p><%= signature.type_of %></p>
-            <p><%= number_with_precision(signature.price, precision: 2, separator: ',', delimiter: '.') %> R$</p>
+  <div class="row">
+    <% @signatures.each do |signature| %>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card-signature">
+          <div class="card-signature-infos">
+              <h2 class= "mb-3"><%= link_to signature.title, signature_path(signature.id), class: "text-decoration-none stretched-link"%></h2>
+              <p><%= signature.description %></p>
+              <p><%= signature.type_of %></p>
+              <p><%= number_with_precision(signature.price, precision: 2, separator: ',', delimiter: '.') %> R$</p>
           </div>
         </div>
-    </div>
-  <% end %>
+      </div> 
+    <% end %>
   </div>
 </div>

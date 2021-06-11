@@ -10,7 +10,7 @@
         </li>
         <% if policy(Basket).show? && current_user.basket %>
           <li class="nav-item active">
-            <%= link_to basket_path(current_user.basket), class: "nav-link mr-2", style: "font-size:16px;" do %>
+            <%= link_to basket_path(current_user.basket), class: "nav-link mr-2", style: "font-size:20px;" do %>
               <i class="fas fa-shopping-cart"></i>
             <% end %>
           </li>

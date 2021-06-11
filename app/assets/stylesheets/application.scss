@@ -25,9 +25,30 @@
   }
 }
 
+:root {
+  --text: #050505;
+  --line: #08B34F;
+  --line-active: #08B34F;
+}
+
+html {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Roboto', sans-serif;
+}
+
+* {
+  box-sizing: inherit;
+  &:before,
+  &:after {
+      box-sizing: inherit;
+  }
+}
+
 html, body {
   height: 100%;
 }
+
 body {
   display: flex;
   flex-direction: column;
@@ -37,4 +58,32 @@ body {
 
 .object-fit-cover {
   object-fit: cover;
+}
+
+h1 {
+  color: black;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 64px;
+  font-weight: 200;
+  letter-spacing: 4px;
+}
+
+h2 {
+  color: black;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-weight: 300;
+  letter-spacing: 4px;
+}
+
+h3 {
+  color: black;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 24px;
+  font-weight: 300;
+  letter-spacing: 4px;
+}
+
+a {
+  color: black;
 }

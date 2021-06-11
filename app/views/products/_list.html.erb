@@ -5,9 +5,9 @@
     <% end %>
   <% end %>
   <% if params[:query].blank? %>
-    <h1 class="h3 m-3" style="color: white;"><%= pluralize products.count, 'product' %> you can save from throwing out!</h1>
+    <h2 class="m-3" style="color: white;"><%= pluralize products.count, 'product' %> you can save from throwing out!</h1>
   <% else %>
-    <h1 class="h3 m-3" style="opacity: 0.7;"><%= pluralize products.count, 'result' %> for <code><%= params[:query] %></code></h1>
+    <h2 class="m-3" style="opacity: 0.7;"><%= pluralize products.count, 'result' %> for <code><%= params[:query] %></code></h1>
   <% end %>
   <div class="cards">
     <% @products.each do |product| %>

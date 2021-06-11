@@ -26,6 +26,7 @@ puts "Users created!"
 puts 'Destroying signatures...'
 Signature.destroy_all
 puts 'Creating signatures...'
+
 Signature.create({
   title: "Veggy Choice",
   type_of: "Weekly delivery",
