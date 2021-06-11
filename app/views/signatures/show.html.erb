@@ -2,16 +2,17 @@
   <div class="row">
     <div class="col-12 col-md-6 offset-lg-3">
       <div class="card-signature mb-4" id="killed-hover-oncard">
-          <div class="card-product-infos">
+          <%= cl_image_tag @signature.photo.key, width: 400, height: 300, crop: :fit %>
+          <div class="card-signature-infos">
             <h2 class= "my-3"><%= @signature.title %></h2>
               <p style="font-size: 16px;"> R$ <%= @signature.price %></p>
               <p><%= @signature.description %></p>
               <p><%= @signature.type_of %> </p>
             <% if policy(Subscription).create? %>
                 <div class="d-flex justify-content-around">
-                    <%= link_to "choose this signature", signature_subscriptions_path(@signature), class: "btn-green", method: :post %>
+                    <%= link_to "choose this signature", signature_subscriptions_path(@signature), class: "btn-homepage", method: :post %>
                     <% end %>
-                    <%= link_to "Back", signatures_path, class: "btn-green" %>
+                    <%= link_to "Back", signatures_path, class: "btn-homepage" %>
                 </div>
           </div>
         </div>
