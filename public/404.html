@@ -5,10 +5,11 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
   .rails-default-error-page {
-    background-color: #EFEFEF;
+    background-color: whitesmoke;
     color: #2E2F30;
     text-align: center;
-    font-family: arial, sans-serif;
+    font-family: Helvetica, sans-serif;
+    font-size: 40px;
     margin: 0;
   }
 
@@ -51,17 +52,21 @@
     color: #666;
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
   }
+
+  #error-page-picture {
+    width: 350px;
+  }
   </style>
 </head>
 
 <body class="rails-default-error-page">
   <!-- This file lives in public/404.html -->
-  <div class="dialog">
-    <div>
-      <h1>The page you were looking for doesn't exist.</h1>
-      <p>You may have mistyped the address or the page may have moved.</p>
+  <div class="error-page">
+    <h1>404 error</h1>
+    <div class="error-page-content">
+      <img id="error-page-picture" src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.pngall.com%2Fwp-content%2Fuploads%2F4%2FDetective-Sherlock-Holmes-Transparent-Background.png&f=1&nofb=1" alt="">
+      <p>We didn't found that page, my dear Watson.</p>
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
   </div>
 </body>
 </html>
