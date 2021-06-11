@@ -5,10 +5,11 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
   .rails-default-error-page {
-    background-color: #EFEFEF;
+    background-color: whitesmoke;
     color: #2E2F30;
     text-align: center;
-    font-family: arial, sans-serif;
+    font-family: Helvetica, sans-serif;
+    font-size: 40px;
     margin: 0;
   }
 
@@ -51,16 +52,21 @@
     color: #666;
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
   }
+
+  #error-page-picture {
+    width: 350px;
+  }
   </style>
 </head>
 
 <body class="rails-default-error-page">
-  <!-- This file lives in public/500.html -->
-  <div class="dialog">
-    <div>
-      <h1>We're sorry, but something went wrong.</h1>
+  <!-- This file lives in public/404.html -->
+  <div class="error-page">
+    <h1>500 error</h1>
+    <div class="error-page-content">
+      <img id="error-page-picture" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.radiofrance.fr%2Fs3%2Fcruiser-production%2F2019%2F04%2F014e88e3-534f-4cc6-afcd-4b5fe175114e%2F870x489_gettyimages-3227503.jpg&f=1&nofb=1" alt="">
+      <p>We need to fix something. Sorry for the incovenience.</p>
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
   </div>
 </body>
 </html>
