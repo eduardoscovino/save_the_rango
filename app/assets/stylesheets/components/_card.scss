@@ -46,25 +46,27 @@
   overflow: hidden;
   transition: box-shadow .2s;
   border-radius: 8px;
+  width: 100%;
+  margin: 24px;
 
   .card-signature-infos {
-    padding: 10px 36px 36px 36px;
-    min-height: 150px;
+    padding: 24px;
     background-color: white;
   }
   
-  .card-signature > img {
+  img {
     height: 250px;
     width: 100%;
     object-fit: cover;
   }
   
-  .card-signature h2 {
+  h2 {
     font-size: 20px;
     margin: 0;
+    font-weight: 400;
   }
   
-  .card-signature p {
+  p {
     font-size: 14px;
     font-weight: 400;
   }
