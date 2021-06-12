@@ -4,9 +4,11 @@
       <div class="card-product mb-4 b-radius-50" >
         <%= cl_image_tag @product.photo.key, width: 400, height: 300, crop: :fit %>
           <div class="card-product-infos">
-            <h3 class= "mb-3"><%= @product.name %></h2>
-            <p> Until: <%= @product.expiration_date %></p>
-            <p> R$ <%= @product.price %></p>
+            <h3 class= "mb-3"><%= @product.name.capitalize %></h3>
+            <%  remaining_days = (@product.expiration_date - DateTime.current.to_date).to_i %>
+            <h5>Get a discount buying nearly expired <%= @product.name.capitalize %>s ! </h5>
+            <p>Now remaining <%= remaining_days %> days</p>
+            <p>Unit Price: R$ <%= @product.price %></p>
             <p>Available: <%= @product.available_quantity %></p>
             <%= link_to product_orders_path(@product), method: :create, class:"btn btn-primary" do %>
               Add to cart <i class="fas fa-cart-plus"></i>
