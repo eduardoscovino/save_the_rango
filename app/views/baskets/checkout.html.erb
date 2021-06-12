@@ -137,7 +137,10 @@
         <p>You'll receive your awesome basket tomorrow!</p>
       </div>
       <div class="modal-footer d-flex justify-content-around">
-        <%= link_to 'Home', root_path, class:"btn btn-outline-primary" %>
+        <%= link_to root_path, class:"btn btn-outline-primary" do %>
+          Home
+          <% @basket.orders.destroy_all %>
+        <% end %>
       </div>
     </div>
   </div>
