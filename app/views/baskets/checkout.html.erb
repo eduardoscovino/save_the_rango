@@ -43,11 +43,12 @@
                     <% count =0 %>
                     <% @basket.orders.each do |order| %>
 
-                      <div class="col-12 col-md-6 offset-lg-3 justify-content-center">
-                        <div class="order-item m-1 " style="box-sizing: content-box; height: 64px; width: 400px;">
+                      <div class="col-12 col-md-12  justify-content-center">
+                        <div class="d-flex order-item m-1 justify-content-between" style=" height: 48px;">
                           <%= cl_image_tag order.product.photo.key, width: 80, height: 30, crop: :fit %>
-                          <div class="order-item-infos">
-                            <h2 class= "mb-3 text-right"><%= order.product.name %> --  R$ <%= number_with_precision(order.product.price, precision: 2, separator: ',', delimiter: '.') %></h2>
+                          <div class="d-flex justify-content-between order-item-infos " style="width: 100%;">
+                            <p class= "mb-3 font-weight-bold"><%= order.product.name.capitalize %>s</p>
+                            <p class="mr-3 font-weight-bold"> R$ <%= number_with_precision(order.product.price, precision: 2, separator: ',', delimiter: '.') %></p>
                           </div>
                         </div>
                       </div>
