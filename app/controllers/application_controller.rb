@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user!
+  before_action :set_cart
+  before_action :orders_count
 
   include Pundit
 
@@ -14,6 +16,23 @@ class ApplicationController < ActionController::Base
 
     # For additional in app/views/devise/registrations/edit.html.erb
     devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :role])
+  end
+
+  def set_cart
+    # set to be inherited as this method was redundant in a bunch of controllers
+    unless current_user.nil?
+      @basket = current_user.basket
+    end
+  end
+
+  def orders_count
+    # count cart products quantity, to display on cart icon of navbar
+    @orders_count = 0
+    unless @basket.nil?
+      @basket.orders.each do |order|
+        @orders_count += order.quantity
+      end
+    end
   end
 
   private
