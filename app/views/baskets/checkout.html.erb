@@ -8,6 +8,7 @@
             <%= cl_image_tag order.product.photo.key, width: 400, height: 300, crop: :fit %>
             <div class="order-item-infos">
               <h2 class= "mb-3"><%= order.product.name %></h2>
+              <p><%= order.quantity %></p>
               <p style="font-size: 16px;">R$ <%= number_with_precision(order.product.price, precision: 2, separator: ',', delimiter: '.') %></p>
             </div>
           </div>

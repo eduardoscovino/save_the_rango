@@ -16,14 +16,14 @@
         <div class="card-product-infos">
           <div>
             <h5><%= link_to product.name, product_path(product), class: "text-decoration-none" %></h5>
-            <p>R$ <%= product.price %></p>
+            <p class="mb-4">R$ <%= product.price %></p>
+            <% if user_signed_in? %>
+              <%= link_to product_orders_path(product), method: :create, class:"btn-homepage" do %>
+                <i class="fas fa-cart-plus"></i>
+              <% end %>
+            <% end %>
           </div>
         </div>
-        <% if user_signed_in? %>
-          <%= link_to product_orders_path(product), method: :create, class:"btn btn-primary" do %>
-            Add to cart <i class="fas fa-cart-plus"></i>
-          <% end %>
-        <% end %>
       </div>
     <% end %>
   </div>
