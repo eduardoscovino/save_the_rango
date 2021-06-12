@@ -13,7 +13,7 @@
     <% @signatures.each do |signature| %>
       <div class="col-12 col-md-6 col-lg-6">
         <div class="card-signature">
-          <%= cl_image_tag signature.photo.key, width: 400, height: 300, crop: :fill %>
+
           <div class="card-signature-infos">
               <h2 class= "mb-3"><%= link_to signature.title, signature_path(signature.id), class: "text-decoration-none stretched-link"%></h2>
               <p><%= signature.description %></p>
