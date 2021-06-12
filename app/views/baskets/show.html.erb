@@ -12,8 +12,12 @@
           <div class="order-item mb-4">
             <%= cl_image_tag order.product.photo.key, width: 400, height: 300, crop: :fit %>
             <div class="order-item-infos">
-              <h2 class= "mb-3"><%= order.product.name %></h2>
+              <h2 class= "mb-3"><%= order.product.name.capitalize %></h2>
               <p style="font-size: 16px;">R$ <%= number_with_precision(order.product.price, precision: 2, separator: ',', delimiter: '.') %></p>
+              <%  remaining_days = (order.product.expiration_date - DateTime.current.to_date).to_i %>
+              <% if remaining_days <=9 %>
+              <p> You got a <strong>20% discount</strong> buying a nearly expiring <%= order.product.name %></p>
+              <% end %>  
               <div class="d-flex align-items-center">
                 <%= link_to  reduce_unit_order_path(order), method: :patch do %>
                   <i class="fas fa-minus-square" style="padding: 0 4px; margin-top: 10px; font-size: 18px; color:#72B8DB;"></i>
@@ -38,3 +42,4 @@
       <% end %>
     </div>
 </div>
+
