@@ -13,7 +13,7 @@
             <%= link_to basket_path(current_user.basket), class: "nav-link mr-2 fas fa-shopping-cart", style: "font-size:20px;" do %>
             <% end %>
             <% if !@orders_count.nil? && @orders_count > 0 %>
-              <p class="text-center mb-0" style="position:absolute; margin-left: 22px; margin-top: 18px; font-size: 13px; font-weight: 500; 
+              <p id="refresh" class="text-center mb-0" style="position:absolute; margin-left: 22px; margin-top: 18px; font-size: 13px; font-weight: 500; 
                         border-radius: 50%; border: 2px solid black ; background-color: white; color:black; width: 20px; height: 20px"><%= @orders_count %></p>
             <% end %>
           </div>
