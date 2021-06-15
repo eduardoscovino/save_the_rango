@@ -12,4 +12,8 @@ class BasketPolicy < ApplicationPolicy
   def checkout?
     user.role == 'Customer' || 'admin' if user
   end
+
+  def destroy?
+    true
+  end
 end

@@ -11,7 +11,7 @@
   <% end %>
   <div class="cards">
     <% @products.each do |product| %>
-      <div class="grid-card">
+      <div class="grid-card" id="product-<%= product.id %>">
         <%= cl_image_tag product.photo.key, width: 400, height: 300, crop: :fit %>
         <div class="card-product-infos">
           <div>
@@ -31,7 +31,7 @@
             <% end %>
             <% if user_signed_in? %>
               <div class="mb-3 mt-4">
-                <%= link_to product_orders_path(product), method: :create, class:"btn-homepage" do %>
+                <%= link_to product_orders_path(product), class:"btn-homepage refresh-basket", method: :post,  remote: true do %>
                   <i class="fas fa-cart-plus"></i>
                 <% end %>
               </div>

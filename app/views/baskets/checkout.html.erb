@@ -20,7 +20,6 @@
     </div>
 </div>
  -->
-***********************
 
 <div class="wrapper bg-white">
     <div class="d-flex flex-column justify-content-center align-items-center p-3" id="order-heading">
@@ -138,9 +137,8 @@
         <p>You'll receive your awesome basket tomorrow!</p>
       </div>
       <div class="modal-footer d-flex justify-content-around">
-        <%= link_to root_path, class:"btn btn-outline-primary" do %>
+        <%= link_to basket_path, method: :delete, class:"btn btn-outline-primary" do %>
           Home
-          <% @basket.orders.destroy_all %>
         <% end %>
       </div>
     </div>

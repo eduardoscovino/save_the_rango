@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
   before_action :set_orders, only: [:destroy, :add_unit, :reduce_unit]  
 
   def create
+    
     if current_user.basket
       basket = current_user.basket
     else
@@ -13,11 +14,7 @@ class OrdersController < ApplicationController
     order.product = Product.find(params[:product_id])
     order.quantity = 1
     authorize order
-    if order.save
-      redirect_to products_path, notice: 'Product added to cart!'
-    else
-      render 'products/show'
-    end
+    order.save
   end
 
   def add_unit
@@ -25,7 +22,7 @@ class OrdersController < ApplicationController
     @order.quantity +=1
     @order.save
     authorize @order
-    redirect_to basket_path(current_user.basket)
+    redirect_to basket_path(current_user.basket, anchor: "order-#{@order.id}")
   end
 
   def reduce_unit
@@ -33,13 +30,13 @@ class OrdersController < ApplicationController
     @order.quantity -= 1
     @order.save
     authorize @order
-    redirect_to basket_path(current_user.basket)
+    redirect_to basket_path(current_user.basket, anchor: "order-#{@order.id}")
   end
 
   def destroy
     @order.destroy
     authorize @order
-    redirect_to basket_path(current_user.basket), notice: 'Product removed from cart'
+    redirect_to basket_path(current_user.basket, anchor: "order-#{@order.id - 1}"), notice: 'Product removed from cart'
   end
 
   private

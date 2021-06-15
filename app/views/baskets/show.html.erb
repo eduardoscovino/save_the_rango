@@ -9,32 +9,31 @@
     <div class="row">
       <% @basket.orders.each do |order| %>
         <div class="col-12 col-md-6 offset-lg-3">
-          <div class="order-item mb-4">
+          <div class="order-item mb-4" id="order-<%= order.id %>">
             <%= cl_image_tag order.product.photo.key, width: 400, height: 300, crop: :fit %>
               <div class="d-flex justify-content-between" style="width:75%;">
                 <div class="order-item-infos">
                   <h2 class= "mb-3"><%= order.product.name.capitalize %></h2>
                   <div class="d-flex">
                     <p style="font-size: 16px; opacity: 1;">Quantity: </p>
-                    <%= link_to  reduce_unit_order_path(order), class: "mx-2", method: :patch do %>
+                    <%= link_to  reduce_unit_order_path(order), class: "mx-2", method: :patch, remote: true do %>
                       <i class="fas fa-minus unit-button"></i>
                     <% end %>
                     <p style="font-size: 16px; opacity: 1;"><%= order.quantity %></p>
-                    <%= link_to  add_unit_order_path(order), class: "mx-2", method: :patch do %>
+                    <%= link_to  add_unit_order_path(order), class: "mx-2", method: :patch, remote: true do %>
                       <i class="fas fa-plus unit-button"></i>
                     <% end %>
                   </div>
                 </div>
                 <div class="d-flex">
-                  <p style="font-size: 16px; opacity: 1;" class="align-self-center">R$ <%= number_with_precision(order.product.price, precision: 2, separator: ',', delimiter: '.') %></p>
+                  <p style="font-size: 16px; opacity: 1;" class="align-self-center">R$ <%= number_with_precision(order.quantity * order.product.price, precision: 2, separator: ',', delimiter: '.') %></p>
                   <div class="align-self-end">
-                    <%= link_to order_path(order), class: "mx-2", method: :delete do %>
+                    <%= link_to order_path(order), class: "mx-2", method: :delete, remote: true do %>
                       <i class="fas fa-trash-alt"></i>
                     <% end %>
                   </div>
                 </div>
               </div>
-            </div>
           </div>
         </div>
       <% end %>

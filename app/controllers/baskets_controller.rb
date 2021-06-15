@@ -13,6 +13,7 @@ class BasketsController < ApplicationController
 
   def destroy
     @basket.destroy
+    authorize @basket
     redirect_to products_path
   end
 
