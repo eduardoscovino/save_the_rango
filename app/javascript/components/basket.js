@@ -1,6 +1,6 @@
 const updateBasketByOrderQuantity = () => {
   var basketNumber = parseInt(document.getElementById("refresh").innerHTML);
-  if (!(basketNumber <= 0)) {
+  if (basketNumber >= 0) {
     basketNumber += 1;
     document.getElementById("refresh").innerHTML = basketNumber;
   }

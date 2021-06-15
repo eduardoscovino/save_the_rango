@@ -36,7 +36,7 @@ class OrdersController < ApplicationController
   def destroy
     @order.destroy
     authorize @order
-    redirect_to basket_path(current_user.basket), notice: 'Product removed from cart'
+    redirect_to basket_path(current_user.basket, anchor: "order-#{@order.id - 1}"), notice: 'Product removed from cart'
   end
 
   private
