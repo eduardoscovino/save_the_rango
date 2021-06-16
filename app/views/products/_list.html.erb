@@ -11,7 +11,7 @@
   <% end %>
   <div class="cards">
     <% @products.each do |product| %>
-      <div class="grid-card" id="product-<%= product.id %>">
+      <div class="grid-card">
         <%= cl_image_tag product.photo.key, width: 400, height: 300, crop: :fit %>
         <div class="card-product-infos">
           <div>
