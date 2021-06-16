@@ -1,26 +1,3 @@
-<!-- <div class="container mt-5 content">
-  <h1 class="text-center pb-3">Thank you for choosing us!</h1>
-  <hr>
-    <div class="row">
-      <% @basket.orders.each do |order| %>
-        <div class="col-12 col-md-6 offset-lg-3">
-          <div class="order-item m-2">
-            <%= cl_image_tag order.product.photo.key, width: 400, height: 300, crop: :fit %>
-            <div class="order-item-infos">
-              <h2 class= "mb-3"><%= order.product.name %></h2>
-              <p><%= order.quantity %></p>
-              <p style="font-size: 16px;">R$ <%= number_with_precision(order.product.price, precision: 2, separator: ',', delimiter: '.') %></p>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    </div>
-    <div class="d-flex justify-content-center pb-3">
-          <%= link_to 'Back', products_path, class: "btn btn-outline-primary my-3" %>
-    </div>
-</div>
- -->
-
 <div class="wrapper bg-white">
     <div class="d-flex flex-column justify-content-center align-items-center p-3" id="order-heading">
         <div class="text-uppercase">
@@ -44,9 +21,10 @@
 
                       <div class="col-12 col-md-12  justify-content-center">
                         <div class="d-flex order-item m-1 justify-content-between" style=" height: 48px;">
-                          <%= cl_image_tag order.product.photo.key, width: 80, height: 30, crop: :fit %>
+                          <%= cl_image_tag order.product.photo.key, width: 80, height: 30 %>
                           <div class="d-flex justify-content-between order-item-infos " style="width: 100%;">
                             <p class= "mb-3 font-weight-bold"><%= order.product.name.capitalize %>s</p>
+
                             <p class="mr-3 font-weight-bold"> R$ <%= number_with_precision(order.product.price, precision: 2, separator: ',', delimiter: '.') %></p>
                           </div>
                         </div>
@@ -58,19 +36,29 @@
                     <th scope="col" class="align-items-center text-dark">Your basket is awesome </th>
                 </tr>
             </thead>
+
+
+        </table>
+    </div>
+    <!-- <div class="d-flex justify-content-start align-items-center list py-1">
+        <div class="mx-3"> <img src="https://images.pexels.com/photos/206959/pexels-photo-206959.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="apple" class="rounded-circle" width="30" height="30"> </div>
+    </div> -->
+
+        <div class="py-5">
+          <table class="table table-borderless">
             <tbody>
                 <tr>
                     <!-- <th scope="row">Frequency:  </th> -->
-                    <td class="text-left">Total</td>
+                    <div class="d-flex justify-content-around">
+                      <td class="text-left pl-5"><strong>Total</strong></td>
                     <td class="text-right pr-5"><b>$  <%= number_with_precision(price, precision: 2, separator: ',', delimiter: '.') %> </b></td>
+                    </div>
+
                 </tr>
             </tbody>
-        </table>
-    </div>
-    <div class="d-flex justify-content-start align-items-center list py-1">
-        <div class="mx-3"> <img src="https://images.pexels.com/photos/206959/pexels-photo-206959.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="apple" class="rounded-circle" width="30" height="30"> </div>
-        <div> Your basket summary  </div>
-    </div>
+          </table>
+        </div>
+
 
     <div class="pt-2 border-bottom mb-3"></div>
     <div class="d-flex justify-content-start align-items-center pl-3">
@@ -82,13 +70,13 @@
         <div class="ml-auto"> <label>Free</label> </div>
     </div>
     <div class="d-flex justify-content-start align-items-center pb-4 pl-3 border-bottom">
-        <div class="text-muted"> <button class="text-white btn">20% Discount</button> </div>
+        <div class="text-muted"> <button class="text-white btn">20% Discount</button> <i style ="font-size: 14px;">on nearly expired food</i> </div>
         <% final_price = price * 0.8 %>
         <% discount = price * 0.2 %>
         <div class="ml-auto price">R$ <%= number_with_precision(discount, precision: 2, separator: ',', delimiter: '.') %></div>
     </div>
     <div class="d-flex justify-content-start align-items-center pl-3 py-3 mb-4 border-bottom">
-        <div class="text-muted"> Today's Total </div>
+        <div class="text-muted">Total to be paid:</div>
         <div class="ml-auto h5">R$ <%= number_with_precision(final_price, precision: 2, separator: ',', delimiter: '.') %></div>
     </div>
     <div class="row border rounded p-1 my-3">
