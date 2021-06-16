@@ -16,7 +16,7 @@
 
   h2 {
     font-size: 16px;
-    font-weight: bold;
+    font-weight: 500;
     margin: 0;
   }
 
@@ -33,11 +33,16 @@
   }
 
   .fa-trash-alt {
-    opacity: .7;
     color: #D23333;
 
     &:hover {
-      opacity: 1;
+      opacity: .7;
     }
   }
+}
+.unit-button {
+  padding: 0 4px; 
+  margin-top: 10px; 
+  font-size: 18px; 
+  color:#33E84E;
 }

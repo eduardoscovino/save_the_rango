@@ -8,13 +8,12 @@ class BasketsController < ApplicationController
 
   def update
     @basket.update(basket_params)
-
     redirect_to basket_path(@basket)
   end
 
   def destroy
     @basket.destroy
-
+    authorize @basket
     redirect_to products_path
   end
 

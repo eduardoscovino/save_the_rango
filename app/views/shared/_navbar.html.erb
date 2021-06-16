@@ -9,11 +9,14 @@
           <%= link_to "Home", "/", class: "nav-link" %>
         </li>
         <% if policy(Basket).show? && current_user.basket %>
-          <li class="nav-item active">
-            <%= link_to basket_path(current_user.basket), class: "nav-link mr-2", style: "font-size:20px;" do %>
-              <i class="fas fa-shopping-cart"></i>
+          <div class="d-flex" style="position:relative;">
+            <%= link_to basket_path(current_user.basket), class: "nav-link mr-2 fas fa-shopping-cart", style: "font-size:20px;" do %>
             <% end %>
-          </li>
+            <% if @orders_count >= 0 %>
+              <p id="refresh" class="text-center mb-0" style="position:absolute; margin-left: 22px; margin-top: 18px; font-size: 13px; font-weight: 500; 
+                        border-radius: 50%; border: 2px solid black ; background-color: white; color:black; width: 20px; height: 20px"><%= @orders_count %></p>
+            <% end %>
+          </div>
         <% end %>
         <li class="nav-item dropdown">
           <%= image_tag "profile.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -29,3 +32,5 @@
     </ul>
   </div>
 </div>
+
+

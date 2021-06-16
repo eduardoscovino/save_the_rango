@@ -12,5 +12,13 @@ class OrderPolicy < ApplicationPolicy
   def destroy?
     record.basket.user == user
   end
+
+  def add_unit?
+    true
+  end
+
+  def reduce_unit?
+    true
+  end
   
 end

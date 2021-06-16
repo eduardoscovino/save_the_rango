@@ -6,7 +6,12 @@ Rails.application.routes.draw do
   resources :products, only: [:index, :show] do
     resources :orders, only: [:new, :create]
   end
-  resources :orders, only: [:destroy]
+  resources :orders, only: [:update, :destroy] do 
+    member do
+      patch 'add_unit'
+      patch 'reduce_unit'
+    end
+  end
   resources :baskets, only: [:show, :update, :destroy] do
     member do
       get 'checkout'

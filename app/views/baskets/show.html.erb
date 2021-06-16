@@ -5,29 +5,43 @@
   </div>
 </div>
 <div class="container mt-5 content">
-  <p class="pb-2 text-center"><em><%= "Hmmmm... looks like your basket is empty. Add orders!" if @basket.orders.empty? %></em></p>
+  <h2 class="pb-2 text-center"><em><%= "Hmmmm... looks like your basket is empty. Add orders!" if @basket.orders.empty? %></em></h2>
     <div class="row">
       <% @basket.orders.each do |order| %>
         <div class="col-12 col-md-6 offset-lg-3">
-          <div class="order-item mb-4">
+          <div class="order-item mb-4" id="order-<%= order.id %>">
             <%= cl_image_tag order.product.photo.key, width: 400, height: 300, crop: :fit %>
-            <div class="order-item-infos">
-              <h2 class= "mb-3"><%= order.product.name.capitalize %></h2>
-              <p style="font-size: 16px;">R$ <%= number_with_precision(order.product.price, precision: 2, separator: ',', delimiter: '.') %> - Qty: <%= order.product.available_quantity  %></p>
-              <%  remaining_days = (order.product.expiration_date - DateTime.current.to_date).to_i %>
-              <% if remaining_days <=9 %>
-              <p> You got a <strong>20% discount</strong> buying a nearly expiring <%= order.product.name %></p>
-              <% end %>
-              <%= link_to order_path(order), method: :delete do %>
-                <i class="fas fa-trash-alt"></i>
-              <% end %>
-            </div>
+              <div class="d-flex justify-content-between" style="width:75%;">
+                <div class="order-item-infos">
+                  <h2 class= "mb-3"><%= order.product.name.capitalize %></h2>
+                  <div class="d-flex">
+                    <p style="font-size: 16px; opacity: 1;">Quantity: </p>
+                    <%= link_to  reduce_unit_order_path(order), class: "mx-2", method: :patch, remote: true do %>
+                      <i class="fas fa-minus unit-button"></i>
+                    <% end %>
+                    <p style="font-size: 16px; opacity: 1;"><%= order.quantity %></p>
+                    <%= link_to  add_unit_order_path(order), class: "mx-2", method: :patch, remote: true do %>
+                      <i class="fas fa-plus unit-button"></i>
+                    <% end %>
+                  </div>
+                </div>
+                <div class="d-flex">
+                  <p style="font-size: 16px; opacity: 1;" class="align-self-center">R$ <%= number_with_precision(order.quantity * order.product.price, precision: 2, separator: ',', delimiter: '.') %></p>
+                  <div class="align-self-end">
+                    <%= link_to order_path(order), class: "mx-2", method: :delete, remote: true do %>
+                      <i class="fas fa-trash-alt"></i>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
           </div>
         </div>
       <% end %>
     </div>
-    <div class="d-flex justify-content-center pb-5">
+    <div class="d-flex justify-content-center py-5">
       <%= link_to 'Back', products_path, class: "btn btn-primary" %>
-      <%= link_to "Proceed to Checkout", checkout_basket_path(@basket), method: :patch, class:"btn btn-success ml-4" %>
+      <% if !current_user.basket.orders.empty? %>
+        <%= link_to "Proceed to Checkout", checkout_basket_path(@basket), method: :patch, class:"btn btn-primary ml-4" %>
+      <% end %>
     </div>
 </div>
