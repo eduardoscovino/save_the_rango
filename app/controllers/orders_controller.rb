@@ -6,6 +6,7 @@ class OrdersController < ApplicationController
     order = Order.new
     order.basket = basket
     order.product = Product.find(params[:product_id])
+    product = order.product
     order.quantity = 1
     authorize order
     order.save
