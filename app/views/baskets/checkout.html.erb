@@ -16,20 +16,19 @@
                 <tr class="text-uppercase text-muted">
                   <div class="row">
                     <% price = 0 %>
-                    <% count =0 %>
+                    <% count = 0 %>
                     <% @basket.orders.each do |order| %>
-
                       <div class="col-12 col-md-12  justify-content-center">
                         <div class="d-flex order-item m-1 justify-content-between" style=" height: 48px;">
                           <%= cl_image_tag order.product.photo.key, width: 80, height: 30 %>
                           <div class="d-flex justify-content-between order-item-infos " style="width: 100%;">
                             <p class= "mb-3 font-weight-bold"><%= order.product.name.capitalize %>s</p>
-
-                            <p class="mr-3 font-weight-bold"> R$ <%= number_with_precision(order.product.price, precision: 2, separator: ',', delimiter: '.') %></p>
+                            <p><%= order.quantity %> pcs</p>
+                            <p class="mr-3 font-weight-bold"> R$ <%= number_with_precision(order.quantity * order.product.price, precision: 2, separator: ',', delimiter: '.') %></p>
                           </div>
                         </div>
                       </div>
-                     <% price += order.product.price %>
+                     <% price += order.quantity * order.product.price %>
                      <% count +=1 %>
                     <% end %>
                   </div>
