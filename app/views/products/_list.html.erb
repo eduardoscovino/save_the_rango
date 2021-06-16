@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <div data-refresh-list-target="list" class="my-3">
   <% if user_signed_in? %>
     <% if policy(Basket).show? && current_user.basket %>
@@ -6,58 +5,9 @@
     <% end %>
   <% end %>
   <% if params[:query].blank? %>
-    <h2 class="m-3" style="color: white;"><%= pluralize products.count, 'product' %> you can save from throwing out!</h1>
+    <h2 class="m-3" style="color: white;">There are <%= pluralize products.count, 'product' %> you can save from throwing out! YAY! 🥳</h1>
   <% else %>
-    <h2 class="m-3" style="opacity: 0.7;"><%= pluralize products.count, 'result' %> for <code><%= params[:query] %></code></h1>
-  <% end %>
-  <div class="cards">
-    <% @products.each do |product| %>
-      <div class="grid-card">
-        <%= cl_image_tag product.photo.key, width: 400, height: 300, crop: :fit %>
-        <div class="card-product-infos">
-          <div>
-            <h5><%= link_to product.name.capitalize, product_path(product), class: "text-decoration-none" %></h5>
-            <p>R$ <%= product.price %></p>
-            <%  remaining_days = (product.expiration_date - DateTime.current.to_date).to_i %>
-            <% remaining_days_pc = (remaining_days / 15 *100) %>
-
-            <p>Product expiring in <%= remaining_days %> days</p>
-
-            <% if remaining_days <= 5 %>
-              <div class="progress">
-              <div class="progress-bar bg-warning" role="progressbar" style="width:40%" aria-valuenow=" 40" aria-valuemin="0" aria-valuemax="100"> Expiring soon!</div>
-              </div>
-              <% else %>
-              <div class="progress">
-                <div class="progress-bar bg-success" role="progressbar" style="width: 70%" aria-valuenow=" 70 " aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            <% end %>
-          </div>
-        </div>
-        <% if user_signed_in? %>
-          <%= link_to product_orders_path(product), method: :create, class:"btn btn-primary" do %>
-            Add to cart <i class="fas fa-cart-plus"></i>
-          <% end %>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
-</div>
-
-        
-        
-        
-=======
-<div data-refresh-list-target="list" class="my-3">
-  <% if user_signed_in? %>
-    <% if policy(Basket).show? && current_user.basket %>
-        <%= link_to "My basket", basket_path(current_user.basket), class: "btn-main" %>
-    <% end %>
-  <% end %>
-  <% if params[:query].blank? %>
-    <h2 class="m-3" style="color: white;"><%= pluralize products.count, 'product' %> you can save from throwing out!</h1>
-  <% else %>
-    <h2 class="m-3" style="opacity: 0.7;"><%= pluralize products.count, 'result' %> for <code><%= params[:query] %></code></h1>
+    <h2 class="m-3" style="color: white;"><%= pluralize products.count, 'result' %> for <code><%= params[:query] %></code></h1>
   <% end %>
   <div class="cards">
     <% @products.each do |product| %>
@@ -65,8 +15,8 @@
         <%= cl_image_tag product.photo.key, width: 400, height: 300, crop: :fit %>
         <div class="card-product-infos">
           <div>
-            <h5><%= link_to product.name, product_path(product), class: "text-decoration-none" %></h5>
-            <p class="mb-4">R$ <%= product.price %></p>
+            <h3><%= link_to product.name.capitalize, product_path(product), class: "text-decoration-none" %></h5>
+            <p class="mb-2">R$ <%= product.price %></p>
             <%  remaining_days = (product.expiration_date - DateTime.current.to_date).to_i %>
             <% remaining_days_pc = (remaining_days / 15 *100) %>
             <p>Product expiring in <%= remaining_days %> days</p>
@@ -92,4 +42,3 @@
     <% end %>
   </div>
 </div>
->>>>>>> cd13447c3ce2c6eb6fa05b7b4e2436fb5dbecba6
