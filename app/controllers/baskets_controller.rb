@@ -14,6 +14,7 @@ class BasketsController < ApplicationController
   def destroy
     @basket.destroy
     authorize @basket
+    Basket.create(user: current_user)
     redirect_to products_path
   end
 

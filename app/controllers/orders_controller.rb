@@ -2,13 +2,8 @@ class OrdersController < ApplicationController
   before_action :set_orders, only: [:destroy, :add_unit, :reduce_unit]  
 
   def create
-    
-    if current_user.basket
-      basket = current_user.basket
-    else
-      basket = Basket.create(user: current_user)
-    end
-
+    basket = current_user.basket
+  
     order = Order.new
     order.basket = basket
     order.product = Product.find(params[:product_id])
