@@ -4,18 +4,20 @@
       <div class="card-product mb-4 b-radius-50" >
         <%= cl_image_tag @product.photo.key, width: 400, height: 300, crop: :fit %>
           <div class="card-product-infos">
-            <h3 class= "mb-3"><%= @product.name.capitalize %></h3>
+            <h3 class= "my-3"><%= @product.name.capitalize %></h3>
             <%  remaining_days = (@product.expiration_date - DateTime.current.to_date).to_i %>
             <h5>Get a discount buying nearly expired <%= @product.name.capitalize %>s ! </h5>
             <p>Now remaining <%= remaining_days %> days</p>
             <p>Unit Price: R$ <%= @product.price %></p>
             <p>Available: <%= @product.available_quantity %></p>
-            <%= link_to product_orders_path(@product), method: :create, class:"btn btn-primary" do %>
-              Add to cart <i class="fas fa-cart-plus"></i>
+            <%= link_to product_orders_path(@product), method: :create, class:"btn-homepage", id: "nomargin" do %>
+              <i class="fas fa-cart-plus"></i>
             <% end %>
           </div>
       </div>
-    <%= link_to "Back", products_path, class: "nav-link", class: "btn-main", id: "nomargin" %>
     </div>
+  </div>
+  <div class="d-flex justify-content-center">
+    <%= link_to "Back", products_path, class: "nav-link", class: "btn-main" %>
   </div>
 </div>

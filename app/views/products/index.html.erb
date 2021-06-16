@@ -3,7 +3,7 @@
     <%= form_with url: products_path, method: :get, html: { class: 'p-3', data: { refresh_list_target: 'form' } } do |f| %>
         <%= f.text_field :query,
                         class: "form-control b-radius-50",
-                        placeholder: 'Find a product',
+                        placeholder: 'Start typing what are you looking for!',
                         value: params[:query],
                         data: {
                                 refresh_list_target: 'searchInput',
