@@ -3,7 +3,6 @@ class OrdersController < ApplicationController
 
   def create
     basket = current_user.basket
-  
     order = Order.new
     order.basket = basket
     order.product = Product.find(params[:product_id])
@@ -11,6 +10,16 @@ class OrdersController < ApplicationController
     authorize order
     order.save
   end
+
+#   When i go to show product my add to cart is not redirecting to my basket
+# its because you took of the redirect to in the create method because of the index products page
+# me advise: add a condition to redirect if the Product.find(params[:product_id]) exists - that means that you are in the show page!!
+# redirect_to basket_path(basket) if Product.find(params[:product_id])
+  # if order.save
+  #   redirect_to basket_path(basket)
+  # else
+  #   render 'products/show'
+  # end
 
   def add_unit
     # add unit to order
