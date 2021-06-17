@@ -18,13 +18,13 @@
                     <% price = 0 %>
                     <% count = 0 %>
                     <% @basket.orders.each do |order| %>
-                      <div class="col-12 col-md-12  justify-content-center">
+                      <div class="col-12 col-md-12 justify-content-center">
                         <div class="d-flex order-item m-1 justify-content-between" style=" height: 48px;">
-                          <%= cl_image_tag order.product.photo.key, width: 80, height: 30 %>
+                          <%= cl_image_tag order.product.photo.key, width: 80, height: 40 %>
                           <div class="d-flex justify-content-between order-item-infos " style="width: 100%;">
-                            <p class= "mb-3 font-weight-bold"><%= order.product.name.capitalize %>s</p>
-                            <p><%= order.quantity %> pcs</p>
-                            <p class="mr-3 font-weight-bold"> R$ <%= number_with_precision(order.quantity * order.product.price, precision: 2, separator: ',', delimiter: '.') %></p>
+                            <p class= "mb-3  "><strong><%= order.product.name.capitalize %>s,</strong> <%= order.quantity %> pcs</p>
+
+                            <p class="mr-3 font-weight-bold">R$ <%= number_with_precision(order.quantity * order.product.price, precision: 2, separator: ',', delimiter: '.') %></p>
                           </div>
                         </div>
                       </div>
@@ -43,7 +43,7 @@
         <div class="mx-3"> <img src="https://images.pexels.com/photos/206959/pexels-photo-206959.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="apple" class="rounded-circle" width="30" height="30"> </div>
     </div> -->
 
-        <div class="py-5">
+        <div class="py-1">
           <table class="table table-borderless">
             <tbody>
                 <tr>
@@ -59,7 +59,7 @@
         </div>
 
 
-    <div class="pt-2 border-bottom mb-3"></div>
+    <div class="pt-1 border-bottom mb-3"></div>
     <div class="d-flex justify-content-start align-items-center pl-3">
         <div class="text-muted">Payment Method</div>
         <div class="ml-auto"> <img src="https://www.freepnglogos.com/uploads/mastercard-png/mastercard-logo-logok-15.png" alt="" width="30" height="30"> <label>Mastercard ******5342</label> </div>
@@ -75,7 +75,7 @@
         <div class="ml-auto price">R$ <%= number_with_precision(discount, precision: 2, separator: ',', delimiter: '.') %></div>
     </div>
     <div class="d-flex justify-content-start align-items-center pl-3 py-3 mb-4 border-bottom">
-        <div class="text-muted">Total to be paid:</div>
+        <div class="text-muted">Total to pay:</div>
         <div class="ml-auto h5">R$ <%= number_with_precision(final_price, precision: 2, separator: ',', delimiter: '.') %></div>
     </div>
     <div class="row border rounded p-1 my-3">
