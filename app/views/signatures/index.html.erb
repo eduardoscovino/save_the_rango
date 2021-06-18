@@ -3,7 +3,7 @@
   <div class="container">
     <% if current_user %>
       <div class="container d-flex justify-content-center mt-2">
-        <h1>Choose your basket, <%= current_user.first_name %>!</h1>
+        <h1>Choose your signature, <%= current_user.first_name.capitalize %>!</h1>
       </div>
     <% end %>
   </div>

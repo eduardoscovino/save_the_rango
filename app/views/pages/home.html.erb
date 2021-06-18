@@ -1,6 +1,5 @@
 <div class="home-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://source.unsplash.com/D2o_oFFRYjk/1600x900
   );">
-  <div class="container">
     <% if current_user %>
       <div class="container mt-2">
         <p class="hello-sentence">Hello, <%= current_user.first_name.capitalize %>!</p>
@@ -15,7 +14,6 @@
         </p>
       </div>
     <% end %>
-  </div>
 </div>
 <div class="container my-5 content" id="home-page-top">
   <div class="home-card">
