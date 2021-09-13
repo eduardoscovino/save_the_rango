@@ -12,4 +12,4 @@ About the code:
 
 - Save The Rango! is a web application in Ruby on Rails, HTML, CSS, Bootstrap, Javascript and Active Record. It means you can access throough your favorite browser in your computer or smatphone.
 
-You can visit the website www.savetheraong.com and check it out! :)
+You can visit the website www.savetherango.com and check it out! :)
