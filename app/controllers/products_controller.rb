@@ -3,9 +3,9 @@ class ProductsController < ApplicationController
 
   def index
     if params[:query].present?
-      @products = policy_scope(Product).where("name ILIKE ?", "%#{params[:query]}%")
+      @products = policy_scope(Product).where("name ILIKE ?", "%#{params[:query]}%").includes([photo_attachment: :blob])
     else
-      @products = policy_scope(Product).order(created_at: :desc)
+      @products = policy_scope(Product).order(created_at: :desc).includes([photo_attachment: :blob])
     end
 
     respond_to do |format|
