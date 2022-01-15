@@ -40,6 +40,7 @@ gem 'faker'
 gem 'dotenv-rails', groups: %I[development test]
 gem 'cloudinary'
 gem 'rubocop', require: false
+gem 'bullet', group: 'development'
 
 gem 'turbolinks_render'
 
