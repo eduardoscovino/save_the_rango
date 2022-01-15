@@ -37,18 +37,17 @@ gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'faker'
-gem 'dotenv-rails', groups: [:development, :test]
+gem 'dotenv-rails', groups: %I[development test]
 gem 'cloudinary'
+gem 'rubocop', require: false
 
 gem 'turbolinks_render'
 
-
-group :development, :test do  gem 'pry-byebug'
+group :development, :test do
+  gem 'pry-byebug'
   gem 'pry-rails'
-  gem 'dotenv-rails'
-
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %I[mri mingw x64_mingw]
 end
 
 group :development do
@@ -69,4 +68,4 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %I[mingw mswin x64_mingw jruby]

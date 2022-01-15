@@ -1,5 +1,5 @@
 class BasketsController < ApplicationController
-  before_action :set_baskets, only: [:show, :update, :destroy, :checkout]
+  before_action :set_baskets, only: %I[show update destroy checkout]
   skip_before_action :verify_authenticity_token
 
   def show

@@ -20,5 +20,4 @@ class OrderPolicy < ApplicationPolicy
   def reduce_unit?
     true
   end
-  
 end

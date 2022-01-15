@@ -12,17 +12,15 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     # For additional fields in app/views/devise/registrations/new.html.erb
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :role])
+    devise_parameter_sanitizer.permit(:sign_up, keys: %I[first_name last_name role])
 
     # For additional in app/views/devise/registrations/edit.html.erb
-    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :role])
+    devise_parameter_sanitizer.permit(:account_update, keys: %I[first_name last_name role])
   end
 
   def set_cart
     # set to be inherited as this method was redundant in a bunch of controllers
-    unless current_user.nil?
-      @basket = current_user.basket
-    end
+    return @basket = current_user.basket unless current_user.nil?
   end
 
   def orders_count
@@ -45,4 +43,3 @@ class ApplicationController < ActionController::Base
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
   end
 end
-

@@ -24,7 +24,6 @@ class SubscriptionsController < ApplicationController
 
     authorize @subscription
     redirect_to subscription_path(@subscription)
-
   end
 
   def checkout
@@ -39,7 +38,7 @@ class SubscriptionsController < ApplicationController
     redirect_to signatures_path
   end
 
- private
+  private
 
   def set_subscriptions
     @subscription = Subscription.find(params[:id])
@@ -48,5 +47,4 @@ class SubscriptionsController < ApplicationController
   def subscription_params
     params.require(:subscription).permit(:user_id, :signature_id)
   end
-
 end

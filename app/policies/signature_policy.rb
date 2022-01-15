@@ -8,5 +8,4 @@ class SignaturePolicy < ApplicationPolicy
   def show?
     return true
   end
-
 end
