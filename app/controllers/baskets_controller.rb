@@ -25,7 +25,7 @@ class BasketsController < ApplicationController
   private
 
   def set_baskets
-    @basket = Basket.find(params[:id])
+    @basket = Basket.includes(orders: {product: [photo_attachment: :blob]}).find(params[:id])
   end
 
   def basket_params
