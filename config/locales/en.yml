@@ -47,3 +47,30 @@ en:
       searchbar: "There are %{product} products you can save from throwing out! YAY! 🥳"
       expiring: "Product expires in"
       days: "days."
+  baskets:
+    show:
+      my_basket: My basket
+      empty_basket: Hmmmm... looks like your basket is empty.
+      back_button: Back
+      proceed_to_checkout_button: Proceed to Checkout
+      order_quantity: Quantity
+    checkout:
+      details: Checkout details
+      order: Order
+      awesome_basket: Your basket is awesome
+      total: Total
+      payment_method: Payment Method
+      delivery_method: Shipping
+      delivery_fee: Free
+      discount: Discount
+      nearly_expired_food: on nearly expired food
+      total_pay: Total to pay
+      billing_address_text: Billing Address
+      billing_address_city:
+      shipping_address: Shipping Address
+      summary: Summary
+      status: "Status: Processing"
+      purchase_confirm: Please Confirm your Purchase
+      modal_confirmation_text: PAYMENT CONFIRMED!
+      congratulation: Congrats! You are participating actively to reduce wastes.
+      recieve: You'll receive your awesome basket soon!
