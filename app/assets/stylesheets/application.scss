@@ -27,25 +27,27 @@
 
 :root {
   --text: #050505;
-  --line: #08B34F;
-  --line-active: #08B34F;
+  --line: #08b34f;
+  --line-active: #08b34f;
 }
 
 html {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
+  scroll-behavior: smooth;
 }
 
 * {
   box-sizing: inherit;
   &:before,
   &:after {
-      box-sizing: inherit;
+    box-sizing: inherit;
   }
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
@@ -53,7 +55,12 @@ body {
   display: flex;
   flex-direction: column;
   background-color: #00aa4f;
-  background-image: linear-gradient(90deg, #00aa4f 0%, #33e84e 50%, #d3f577 100%);
+  background-image: linear-gradient(
+    90deg,
+    #00aa4f 0%,
+    #33e84e 50%,
+    #d3f577 100%
+  );
 }
 
 .object-fit-cover {
@@ -62,7 +69,7 @@ body {
 
 h1 {
   color: black;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   font-size: 64px;
   font-weight: 200;
   letter-spacing: 4px;
@@ -70,7 +77,7 @@ h1 {
 
 h2 {
   color: black;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   font-size: 32px;
   font-weight: 300;
   letter-spacing: 2px;
@@ -78,7 +85,7 @@ h2 {
 
 h3 {
   color: black;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   font-size: 24px;
   font-weight: 300;
   letter-spacing: 4px;
@@ -86,4 +93,13 @@ h3 {
 
 a {
   color: black;
+}
+
+.lang-icon {
+  width: 32px;
+  cursor: cell;
+}
+
+.wrapper-width {
+  width: 700px;
 }

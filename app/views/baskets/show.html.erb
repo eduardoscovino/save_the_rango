@@ -1,12 +1,12 @@
 <div class="basket-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://source.unsplash.com/pvzPPsl3Xak/1600x900
     );">
   <div class="container">
-    <h1 class="text-center pb-3">My Basket</h1>
+    <h1 class="text-center pb-3"><%= t('.my_basket') %></h1>
   </div>
 </div>
 <div class="container mt-5 content">
   <% if @basket.orders.empty? %>
-    <h2 class="pb-2 text-center"><em>Hmmmm... looks like your basket is empty.</em> 😕</h2>
+    <h2 class="pb-2 text-center"><em><%= t('.empty_basket') %></em> 😕</h2>
   <% end %>
     <div class="row">
       <% @basket.orders.each do |order| %>
@@ -17,7 +17,7 @@
                 <div class="order-item-infos">
                   <h2 class= "mb-3"><%= order.product.name.capitalize %></h2>
                   <div class="d-flex">
-                    <p style="font-size: 16px; opacity: 1;">Quantity: </p>
+                    <p style="font-size: 16px; opacity: 1;"><%= t('.order_quantity') %></p>
                     <%= link_to  reduce_unit_order_path(order), class: "mx-2", method: :patch, remote: true do %>
                       <i class="fas fa-minus unit-button"></i>
                     <% end %>
@@ -41,9 +41,9 @@
       <% end %>
     </div>
     <div class="d-flex justify-content-center align-items-center py-5">
-      <%= link_to 'Back', products_path, class: "btn-main" %>
+      <%= link_to t('.back_button'), products_path, class: "btn-main" %>
       <% if !current_user.basket.orders.empty? %>
-        <%= link_to "Proceed to Checkout", checkout_basket_path(@basket), method: :patch, class:"btn btn-primary ml-4" %>
+        <%= link_to t('.proceed_to_checkout_button'), checkout_basket_path(@basket), method: :patch, class:"btn btn-primary ml-4" %>
       <% end %>
     </div>
 </div>

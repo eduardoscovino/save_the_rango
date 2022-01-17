@@ -1,11 +1,11 @@
 <div data-refresh-list-target="list" class="my-3">
   <% if user_signed_in? %>
     <% if policy(Basket).show? && current_user.basket %>
-        <%= link_to "My basket", basket_path(current_user.basket), class: "btn-main" %>
+        <%= link_to "My basket", basket_path(current_user.basket), class: "btn-main", data: { refresh_list_target: "basketLink" } %>
     <% end %>
   <% end %>
   <% if params[:query].blank? %>
-    <h2 class="m-3" style="color: white;">There are <%= pluralize products.count, 'product' %> you can save from throwing out! YAY! 🥳</h1>
+    <h2 class="m-3" style="color: white;"><%= t('.searchbar', product: products.count) %></h1>
   <% else %>
     <h2 class="m-3" style="color: white;"><%= pluralize products.count, 'result' %> for <code><%= params[:query] %></code></h1>
   <% end %>
@@ -19,7 +19,7 @@
             <p class="mb-2">R$ <%= product.price %></p>
             <%  remaining_days = (product.expiration_date - DateTime.current.to_date).to_i %>
             <% remaining_days_pc = (remaining_days / 15 *100) %>
-            <p>Product expiring in <%= remaining_days %> days</p>
+            <p><%= t('.expiring') %> <%= remaining_days %> <%= t('.days') %></p>
             <% if remaining_days <= 3 %>
 
               <div class="progress">

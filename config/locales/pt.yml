@@ -1,0 +1,49 @@
+pt:
+  javascript:
+    products_search_input_placeholder: Comece a digitar o que você está procurando!
+    products_index_cart_button: Meu carrinho
+  pages:
+    home:
+      hello_sentence: "Olá, %{name} !"
+      waste_numbers_sentence_html:
+        "Estima-se que <strong>1,3 bilhão de toneladas de alimentos são desperdiçados globalmente a cada ano</strong>,
+        1/3 de todos os alimentos produzidos para consumo humano, segundo a Organização das Nações Unidas
+        para Agricultura e Alimentação (FAO) e é responsável por 8% de todas as emissões de gases de efeito
+        estufa . Estamos em uma missão para mudar isso e vencer o <strong>WASTE</strong> - você está conosco?"
+      join_us_html: "<strong>Participe e Save the Rango!</strong>"
+      want_to_know: "Eu quero saber"
+      more_link: "MAIS!"
+      option_sentence: "Temos duas opções para você Save the Rango:"
+      home_signatures_button: "Assinaturas"
+      home_products_button: "Produtos"
+      our_mission: "Nossa missão"
+      beat_the_waste_card_title: "Bata o desperdício"
+      beat_the_waste_card_body:
+        "Você só pega os melhores produtos nas prateleiras dos supermercados,
+        rejeitando qualquer coisa que possa estar deformada ou levemente machucada? Como as pessoas,
+        muitas vezes julgamos nossas frutas e legumes pela aparência. Esperamos que nossas cenouras sejam retas,
+        nossas maçãs brilhantes e os tomates redondos."
+      ugly_food_card_title: "Pessoas legais também comem comida feia!"
+      ugly_food_card_body:
+        "Toneladas de alimentos (literalmente, muitas toneladas) são desperdiçadas todos os anos apenas
+        por causa de sua aparência. Estima-se que cerca de 20% da produção
+        ou mais é jogado fora por razões estéticas, como formas estranhas,
+        cores, ou manchas em uma casca que você nem come."
+      join_the_community_card_title_html: "Junte-se à comunidade! 🌎 <strong>Por que desperdiçamos comida feia?</strong>"
+      join_the_community_card_body_html:
+        "Você sabia que as datas de validade que comumente vemos em alimentos
+        embalados não representam nenhum sistema regulamentado ou padronizado de segurança alimentar?
+        Muitas pessoas verificam cuidadosamente essas datas e jogam fora qualquer coisa atrasada, mesmo
+        que pareça totalmente boa para comer. Na verdade, as datas são apenas sugestões do fabricante
+        para quando o alimento está em sua qualidade máxima, não quando não é seguro comer."
+  shared:
+    footer:
+      coded_by_html: <span>Codificado por <i class="fas fa-code-branch"></i> Sebastien Prat, Eduardo Scovino & Gergő Karcagi.</span>
+    navbar:
+      donate: "Doar"
+      news: "Notícias"
+  products:
+    list:
+      searchbar: "Há %{product} produtos que você pode evitar jogar fora! YAY! 🥳"
+      expiring: "Producto expira em"
+      days: "dias."
