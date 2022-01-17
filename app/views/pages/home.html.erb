@@ -2,7 +2,7 @@
   );">
     <% if current_user %>
       <div class="container mt-2">
-        <p class="hello-sentence">Hello, <%= current_user.first_name.capitalize %>!</p>
+        <p class="hello-sentence"><%= t('.hello_sentence', name: current_user.first_name.capitalize) %>!</p>
         <p>
           <span class="hello-sentence" id="banner-typed-text"></span>
         </p>
@@ -18,12 +18,9 @@
 <div class="container my-5 content" id="home-page-top">
   <div class="home-card">
     <div class="p-5">
-      <p class="text-center">An estimated <strong>1.3 billion tonnes of food is wasted globally each year</strong>, 
-        1/3 of all food produced for human consumption, according to the Food and Agriculture Organization 
-        (FAO) of the United Nations and it is responsible for 8% of all greenhouse gas emissions. 
-        We are on a mission to change that and beat the <strong>WASTE</strong> - are you with us ?</p>
-      <h3 class="text-center"><strong>Join and Save the Rango!</strong></h3>
-      <p class="text-center pt-4" style="font-weight: 400;">I want to know <a href="#mission"> MORE!<svg viewBox="0 0 70 36">
+      <p class="text-center"><%= t('.waste_numbers_sentence_html') %></p>
+      <h3 class="text-center"><%= t('.join_us_html') %></h3>
+      <p class="text-center pt-4" style="font-weight: 400;"><%= t('.want_to_know')  %> <a href="#mission"><%= t('.more_link')  %><svg viewBox="0 0 70 36">
             <path d="M6.9739 30.8153H63.0244C65.5269 30.8152 75.5358 -3.68471 35.4998 2.81531C-16.1598 11.2025 
             0.894099 33.9766 26.9922 34.3153C104.062 35.3153 54.5169 -6.68469 23.489 9.31527" /></svg></a>
       </p>
@@ -35,70 +32,44 @@
 </div>
 <div class="container my-5">
   <div class="option-card">
-    <h1 class="pb-3 text-center">We have two options for you to save the rango:</h1>
+    <h1 class="pb-3 text-center"><%= t('.option_sentence') %></h1>
     <div class="mb-4">
-      <%= link_to "Signatures", signatures_path, class: "btn-homepage" %>
-      <%= link_to "Products", products_path, class: "btn-homepage" %>
+      <%= link_to t('.home_signatures_button'), signatures_path, class: "btn-homepage" %>
+      <%= link_to t('.home_products_button'), products_path, class: "btn-homepage" %>
     </div>
   </div>
   <hr style="border-top: 1px solid rgba(0, 0, 0, 0.3); margin-top: 64px;">
 </div>
 <div class="container-fluid justify-content-around mb-5">
   <a name="mission"></a>
-  <h1 class="pb-5 text-center">Our mission</h1>
+  <h1 class="pb-5 text-center"><%= t('.our_mission') %></h1>
   <div class="row align-items-stretch">
     <div class="col-12 col-md-6 col-lg-4">
       <div class="mission-card mx-5 my-4">
-        <img src="https://assets.londonist.com/uploads/2019/10/i875/wraphouseholdwasteedit_09.jpg" class="card-img-top h-50"  alt="...">
+        <img src="https://assets.londonist.com/uploads/2019/10/i875/wraphouseholdwasteedit_09.jpg" class="img-fluid"  alt="...">
         <div class="mission-card-body">
-          <h5 class="card-title">Beat the waste 👍</h5>
-          <p class="card-text">Do you only pick the best produce from the supermarket shelves,
-            rejecting anything that may be misshapen or slightly bruised?
-            Like people, we often judge our fruit and vegetables on how they look.
-            We expect our carrots to be straight, our apples to be shiny and tomatoes to be round.
-          </p>
-          <!-- <p class="card-text"><strong>What You Can Do?</strong>
-              Bought too much food or too busy to cook something? Or just don't know what to do with it? Look up the surplus ingredient
-              and find out how to best store it, extend its life, or cook it.
-              Want to stop throwing out scraps? Implement some no-waste strategies in your kitchen.
-            </p> -->
+          <h5 class="card-title"><%= t('.beat_the_waste_card_title') %> 👍</h5>
+          <p class="card-text"><%= t('.beat_the_waste_card_body') %></p>
         </div>
       </div>
     </div>
     <div class="col-12 col-md-6 col-lg-4">
       <div class="mission-card mx-5 my-4">
-        <img src="https://laespanolaoliveoil.com/img/articulos/the-ugly-food-movement-rescuing-food-and-fighting-food-waste.jpg" class="card-img-top h-50" alt="...">
+        <img src="https://laespanolaoliveoil.com/img/articulos/the-ugly-food-movement-rescuing-food-and-fighting-food-waste.jpg" class="img-fluid" alt="...">
         <div class="mission-card-body">
-          <h5 class="card-title">Nice people eat ugly food too! 🥑</h5>
+          <h5 class="card-title"><%= t('.ugly_food_card_title') %> 🥑</h5>
           <p class="card-text">
-            Tons of food (literally, many tons) are wasted every year just because of looks.
-            It's estimated that approximately 20% of produce or more gets thrown out for cosmetic reasons
-            like weird shapes, odd colors, or blemishes on a peel you don't even eat.
+            <%= t('.ugly_food_card_body') %>
             </p>
-           <!--  <p>
-            That's 1 in 5 fruits and vegetables getting tossed into landfill even though they're just as nutritious and delicious to eat.
-            Why are we wasting so much food?!
-            Buy your veggies at a Save The Rango!
-          </p> -->
         </div>
       </div>
     </div>
     <div class="col-12 col-md-6 col-lg-4">
       <div class="mission-card mx-5 my-4">
-        <img src="https://source.unsplash.com/qgHGDbbSNm8/1000x500" class="card-img-top h-50" alt="...">
+        <img src="https://source.unsplash.com/qgHGDbbSNm8/1000x650" class="img-fluid" alt="...">
         <div class="mission-card-body">
-          <h5 class="card-title">Join the community! 🌎 <strong>Why We Waste Ugly Food?</strong> </h5>
-          <p class="card-text">
-            Did you know that the expiration dates we commonly see on packaged food don't represent any regulated or standardized system of food safety?
-            Lots of people carefully check these dates and throw out anything past due,
-            even if it looks totally fine to eat. In fact, the dates are only suggestions by the manufacturer
-            for when the food is at its peak quality, not when it is unsafe to eat.</p>
-            <!-- <p>
-            According to the National Resources Defense Council: 'The current system of expiration dates misleads consumers to believe
-            they must discard food in order to protect their own safety. In fact, the dates are only suggestions by the manufacturer
-            for when the food is at its peak quality, not when it is unsafe to eat.
-             </p> -->
-
+          <h5 class="card-title"><%= t('.join_the_community_card_title_html') %></h5>
+          <p class="card-text"><%= t('.join_the_community_card_body_html') %></p>
         </div>
       </div>
     </div>

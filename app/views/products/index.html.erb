@@ -2,6 +2,7 @@
   <div data-controller="refresh-list">
     <%= form_with url: products_path, method: :get, html: { class: 'p-3', data: { refresh_list_target: 'form' } } do |f| %>
         <%= f.text_field :query,
+                        id: "search-bar",
                         class: "form-control b-radius-50",
                         placeholder: 'Start typing what are you looking for!',
                         value: params[:query],

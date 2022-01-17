@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'pages#home'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-
-  resources :products, only: [:index, :show] do
-    resources :orders, only: [:new, :create]
+  scope '(:locale)', locale: /pt/ do
+    root to: 'pages#home'
+    resources :products, only: [:index, :show] do
+      resources :orders, only: [:new, :create]
+    end
   end
   resources :orders, only: [:update, :destroy] do 
     member do

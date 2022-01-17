@@ -1,33 +1,49 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  javascript:
+    products_search_input_placeholder: Start typing what are you looking for!
+    products_index_cart_button: My basket
+  pages:
+    home:
+      hello_sentence: "Hello, %{name} !"
+      waste_numbers_sentence_html:
+        "An estimated <strong>1.3 billion tonnes of food is wasted globally each year</strong>,
+        1/3 of all food produced for human consumption, according to the Food and Agriculture Organization
+        (FAO) of the United Nations and it is responsible for 8% of all greenhouse gas emissions.
+        We are on a mission to change that and beat the <strong>WASTE</strong> - are you with us ?"
+      join_us_html: "<strong>Join and Save the Rango!</strong>"
+      want_to_know: "I want to know"
+      more_link: "MORE!"
+      option_sentence: "We have two options for you to save the rango:"
+      home_signatures_button: "Signatures"
+      home_products_button: "Products"
+      our_mission: "Our mission"
+      beat_the_waste_card_title: "Beat the waste"
+      beat_the_waste_card_body:
+        "Do you only pick the best produce from the supermarket shelves,
+        rejecting anything that may be misshapen or slightly bruised?
+        Like people, we often judge our fruit and vegetables on how they look.
+        We expect our carrots to be straight, our apples to be shiny and tomatoes to be round."
+      ugly_food_card_title: "Nice people eat ugly food too!"
+      ugly_food_card_body:
+        "Tons of food (literally, many tons) are wasted every year just
+        because of their looks. It's estimated that approximately 20% of produce
+        or more gets thrown out for cosmetic reasons like weird shapes, odd
+        colors, or blemishes on a peel you don't even eat."
+      join_the_community_card_title_html: "Join the community! 🌎 <strong>Why Do We Waste Ugly Food?</strong>"
+      join_the_community_card_body_html:
+        "Did you know that the expiration dates we commonly see
+        on packaged food don't represent any regulated or standardized system of food safety?
+        Lots of people carefully check these dates and throw out anything past due, even if it
+        looks totally fine to eat. In fact, the dates are only suggestions by the manufacturer for
+        when the food is at its peak quality, not when it is unsafe to eat."
+  shared:
+    footer:
+      coded_by_html: <span>Coded by <i class="fas fa-code-branch"></i> Sebastien Prat, Eduardo Scovino & Gergő Karcagi.</span>
+    navbar:
+      donate: "Donate"
+      news: "News"
+  products:
+    list:
+      searchbar: "There are %{product} products you can save from throwing out! YAY! 🥳"
+      expiring: "Product expires in"
+      days: "days."
